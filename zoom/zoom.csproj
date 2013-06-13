@@ -42,18 +42,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UMD.HCIL.Piccolo">
-      <HintPath>..\..\..\..\..\..\..\libraries\Piccolo.NET\Bin\UMD.HCIL.Piccolo.dll</HintPath>
-    </Reference>
-    <Reference Include="UMD.HCIL.PiccoloDirect3D">
-      <HintPath>..\..\..\..\..\..\..\libraries\Piccolo.NET\Bin\UMD.HCIL.PiccoloDirect3D.dll</HintPath>
-    </Reference>
-    <Reference Include="UMD.HCIL.PiccoloX">
-      <HintPath>..\..\..\..\..\..\..\libraries\Piccolo.NET\Bin\UMD.HCIL.PiccoloX.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Page.cs" />
+    <Compile Include="PageSize.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +74,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\libraries\Piccolo.NET\Source\PiccoloXTests\PiccoloXTests.csproj">
+      <Project>{dd129995-2039-45c4-9773-028260496c45}</Project>
+      <Name>PiccoloXTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\libraries\Piccolo.NET\Source\PiccoloX\PiccoloX.csproj">
+      <Project>{e4079b36-6a5d-42c2-8f20-6c0dd8780192}</Project>
+      <Name>PiccoloX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\libraries\Piccolo.NET\Source\Piccolo\Piccolo.csproj">
+      <Project>{a1e844b2-72bc-469d-b68f-7de6af0bbcd9}</Project>
+      <Name>Piccolo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

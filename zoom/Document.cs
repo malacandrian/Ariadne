@@ -1,40 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using UMD.HCIL.Piccolo;
 using UMD.HCIL.Piccolo.Nodes;
-using UMD.HCIL.Piccolo.Util;
+using UMD.HCIL.PiccoloX.Nodes;
+using UMD.HCIL.Piccolo.Event;
+
 
 namespace zoom
 {
     public class Document : PNode
     {
-        public PText Text { get; protected set; }
-        public override void OnKeyPress(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
+       public  List<Page> Pages {get; protected set;}
+
+
+       public Document(int x, int y, char c)
+       {
+           Pages = new List<Page>();
+           Page first = new Page(x, y, c, this, null, null);
+           Pages.Add(first);
+           AddChild(first);
+           AddInputEventListener(new DocDragHandler());
+           
+       }
+    }
+    public class DocDragHandler : PBasicInputEventHandler 
+    {
+        public override void OnMouseDown(object sender, PInputEventArgs e)
         {
-            base.OnKeyPress(e);
-            Text.Text += e.KeyChar;
+            base.OnMouseDown(sender, e);
+
+            PNode aNode = (PNode)sender;
+            
+            e.InputManager.KeyboardFocus = e.Path;
+            e.Handled = true;
         }
 
-        public override void OnClick(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
+        public override void OnMouseDrag(object sender, PInputEventArgs e)
         {
-            base.OnClick(e);
-            e.InputManager.KeyboardFocus = this.ToPickPath(e.Camera,Bounds);
+            PNode aNode = (PNode)sender;
+            SizeF delta = e.GetDeltaRelativeTo(aNode);
+            aNode.TranslateBy(delta.Width, delta.Height);
+            e.Handled = true;
         }
 
-        public Document(int x, int y, char c)
-        {
-            SetBounds(x, y, Page.A4.Width, Page.A4.Height);
-            PPath border = PPath.CreateRectangle(x, y, Page.A4.Width, Page.A4.Height);
-            border.Pen = Pens.Black;
-
-            AddChild(border);
-
-            Text = new PText("" + c);
-            Text.ConstrainHeightToTextHeight = false;
-            Text.ConstrainWidthToTextWidth = false;
-            Text.SetBounds(x, y, Page.A4.Width, Page.A4.Height);
-            AddChild(Text);
-
-        }
     }
 }

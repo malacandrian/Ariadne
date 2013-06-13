@@ -45,7 +45,8 @@ namespace zoom
             int y = (int)lastPoint.Y;
             Document created = new Document(x, y,e.KeyChar);
             Owner.Layer.AddChild(created);
-            e.InputManager.KeyboardFocus = created.ToPickPath(e.Camera,created.Bounds);
+            PNode firstPage = created.Pages[0];
+            e.InputManager.KeyboardFocus = firstPage.ToPickPath(e.Camera,firstPage.Bounds);
 
         }
 
