@@ -5,6 +5,7 @@ using UMD.HCIL.Piccolo;
 using UMD.HCIL.Piccolo.Nodes;
 using UMD.HCIL.PiccoloX.Nodes;
 using UMD.HCIL.Piccolo.Event;
+using System.Windows.Forms;
 
 
 namespace zoom
@@ -22,27 +23,29 @@ namespace zoom
            AddChild(first);
            AddInputEventListener(new DocDragHandler());
            
+           
        }
     }
     public class DocDragHandler : PBasicInputEventHandler 
     {
-        public override void OnMouseDown(object sender, PInputEventArgs e)
-        {
-            base.OnMouseDown(sender, e);
-
-            PNode aNode = (PNode)sender;
-            
-            e.InputManager.KeyboardFocus = e.Path;
-            e.Handled = true;
-        }
 
         public override void OnMouseDrag(object sender, PInputEventArgs e)
         {
             PNode aNode = (PNode)sender;
             SizeF delta = e.GetDeltaRelativeTo(aNode);
             aNode.TranslateBy(delta.Width, delta.Height);
-            e.Handled = true;
+            aNode.MoveToFront();
+            
         }
+        public override bool DoesAcceptEvent(PInputEventArgs e)
+        {
+            bool output = (base.DoesAcceptEvent(e) && (e.Button == (MouseButtons.Left | MouseButtons.Right)));
+            e.Handled = output;
+            return output;
+            
+        }
+
+        
 
     }
 }

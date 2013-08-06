@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandInterface.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="PageSize.cs" />
     <Compile Include="Document.cs" />

@@ -7,6 +7,10 @@ using UMD.HCIL.Piccolo;
 using UMD.HCIL.Piccolo.Nodes;
 using UMD.HCIL.PiccoloX.Nodes;
 using System.Drawing;
+using UMD.HCIL.PiccoloX.Util.PStyledTextHelpers;
+using System.Drawing.Drawing2D;
+using UMD.HCIL.Piccolo.Event;
+using System.Windows.Forms;
 
 namespace zoom
 {
@@ -16,7 +20,9 @@ namespace zoom
         public Document Doc { get; protected set; }
         public Page Prev { get; protected set; }
         public Page Next { get; protected set; }
-        public override void OnKeyDown(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
+        protected PPath Cursor { get; set; }
+
+        /*public override void OnKeyDown(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
         {
             base.OnKeyDown(e);
             Text.OnKeyDown(e);
@@ -26,7 +32,7 @@ namespace zoom
             base.OnKeyPress(e);
             Text.OnKeyPress(e);
         }
-        
+        */
         public override void OnClick(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
         {
             base.OnClick(e);
@@ -45,14 +51,19 @@ namespace zoom
             Text = new PStyledText("" + c);
             Text.ConstrainHeightToTextHeight = false;
             Text.ConstrainWidthToTextWidth = false;
-            Text.Bounds = new RectangleF(x, y, PageSize.A4.Width, PageSize.A4.Height);
+            Text.Bounds = new RectangleF(x, y, PageSize.A4.Width, PageSize.A4.Height);        
             AddChild(Text);
+
+            Text.RemoveInputEventListener(Text.DefaultHandler);
+            Text.AddInputEventListener(new PageTextHandler(Text));
 
             Text.Reflow += new ReflowEvent(Reflow);
 
             Doc = parent;
             Prev = pr;
             Next = nx;
+
+            AddInputEventListener(new SelectEventHandler());
 
         }
 
@@ -74,28 +85,54 @@ namespace zoom
                 }
                 Text.ClearOverFlow();
             }
-            
-
         }
-        //protected string Sweep(string running,int depth)
-        //{
-        //    running += Text.Text;
-        //    if (Next == null )
-        //    {
-        //        if (depth > 0)
-        //        {
-        //            Doc.Pages.Remove(this);
-        //            Doc.RemoveChild(this);
-        //        }
-               
-        //    }
-        //    else
-        //    {
-        //        running = Next.Sweep(running, depth + 1);
-        //        Next = null;
-                
-        //    }
-        //    return running;
-        //}
+    }
+    public class SelectEventHandler : PDragSequenceEventHandler
+    {
+        protected PointF DragStart;
+
+        public override bool DoesAcceptEvent(PInputEventArgs e)
+        {
+            if (base.DoesAcceptEvent(e))
+            {
+                if (!e.Handled && e.IsMouseEvent && e.Button == MouseButtons.Left)
+                {
+                    e.Handled = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        protected override void OnStartDrag(object sender, PInputEventArgs e)
+        {
+            base.OnStartDrag(sender, e);
+            DragStart = e.Position;      
+        }
+
+        protected override void OnDrag(object sender, PInputEventArgs e)
+        {
+            base.OnDrag(sender, e);
+            ((Page)sender).Text.Select(DragStart, e.Position);
+        }
+
+        protected override void OnEndDrag(object sender, PInputEventArgs e)
+        {
+            base.OnEndDrag(sender, e);
+        }
+    }
+
+    public class PageTextHandler : TextEntryInputHandler
+    {
+        public PageTextHandler(PStyledText o)
+            : base(o)
+        {
+        }
+
+        /*public override bool DoesAcceptEvent(PInputEventArgs e)
+        {
+            return e.IsKeyEvent && e.KeyCode != Keys.ControlKey && base.DoesAcceptEvent(e);
+        }
+         */
     }
 }

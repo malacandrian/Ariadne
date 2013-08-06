@@ -4,6 +4,7 @@ using UMD.HCIL.PiccoloX;
 using UMD.HCIL.Piccolo.Event;
 using System.Drawing;
 using System.Windows.Forms;
+using UMD.HCIL.Piccolo.Nodes;
 
 namespace zoom
 {
@@ -14,6 +15,34 @@ namespace zoom
             WindowState = FormWindowState.Maximized;
             Canvas.AddInputEventListener(new DocCreateHandler(Canvas));
             Canvas.Root.DefaultInputManager.KeyboardFocus = Canvas.Camera.ToPickPath();
+            Canvas.ZoomEventHandler = new NewZoomEventHandler();
+            Canvas.PanEventHandler = new NewPanEventHandler();
+           
+            Canvas.Camera.AddInputEventListener(new ShowCommandHandler(Canvas.Camera));
+        }
+    }
+
+    public class NewZoomEventHandler : PZoomEventHandler
+    {
+        protected override bool PZoomEventHandlerAcceptsEvent(PInputEventArgs e)
+        {
+            if (base.PZoomEventHandlerAcceptsEvent(e))
+            {
+                return (e.PickedNode is PCamera);  
+            }
+            return false;
+        }
+    }
+
+    public class NewPanEventHandler : PPanEventHandler
+    {
+        protected override bool PPanEventHandlerAcceptsEvent(PInputEventArgs e)
+        {
+            if ( base.PPanEventHandlerAcceptsEvent(e))
+            {
+                return (e.PickedNode is PCamera);
+            }
+            return false;
         }
     }
 
@@ -56,4 +85,6 @@ namespace zoom
             return base.DoesAcceptEvent(e) && (isLeftClick || e.IsKeyPressEvent) && e.PickedNode.GetType() == (new PCamera().GetType());
         }
     }
+
+    
 }
