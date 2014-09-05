@@ -5,18 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using UMD.HCIL.Piccolo;
 using UMD.HCIL.Piccolo.Nodes;
+using UMD.HCIL.Piccolo.Util;
 using System.Drawing;
 using UMD.HCIL.Piccolo.Event;
 using System.Windows.Forms;
 using UMD.HCIL.PiccoloX.Nodes;
+using System.Runtime.InteropServices;
+using zoom.Commands;
 
 
 namespace zoom
 {
-    public class CommandInterface : PNode 
+    public class CommandInterface : PNode
     {
         public PPath Background { get; protected set; }
         public PText Entry { get; protected set; }
+
+        private List<ICommand> commands = new List<ICommand>();
+        public ICommand[] Commands
+        {
+            get
+            {
+                return commands.ToArray();
+            }
+        }
 
         public CommandInterface()
         {
@@ -30,6 +42,9 @@ namespace zoom
             AddChild(Entry);
 
             Entry.AddInputEventListener(new TextEntryHandler(this));
+
+            commands.Add(new BoldCommand());
+            commands.Add(new ItalicCommand());
         }
     }
 
@@ -44,7 +59,7 @@ namespace zoom
 
         public override bool DoesAcceptEvent(PInputEventArgs e)
         {
-            return e.IsKeyEvent && e.KeyCode != System.Windows.Forms.Keys.CapsLock && base.DoesAcceptEvent(e);            
+            return e.IsKeyEvent && e.KeyCode != System.Windows.Forms.Keys.CapsLock && base.DoesAcceptEvent(e);
         }
 
         public override void OnKeyDown(object sender, PInputEventArgs e)
@@ -61,9 +76,11 @@ namespace zoom
 
     public class ShowCommandHandler : PBasicInputEventHandler
     {
+
         public PCamera Camera { get; protected set; }
         public CommandInterface Command { get; protected set; }
         public bool IsPressed { get; protected set; }
+        private PPickPath keyFocus;
 
         public ShowCommandHandler(PCamera c)
         {
@@ -73,7 +90,7 @@ namespace zoom
 
         public override bool DoesAcceptEvent(PInputEventArgs e)
         {
-            if (base.DoesAcceptEvent(e) && e.IsKeyEvent && e.KeyCode == Keys.ControlKey)
+            if (e.IsKeyEvent && e.KeyCode == Keys.ControlKey && base.DoesAcceptEvent(e))
             {
                 e.Handled = true;
                 return true;
@@ -88,6 +105,7 @@ namespace zoom
                 base.OnKeyDown(sender, e);
                 Command = new CommandInterface();
                 Camera.AddChild(Command);
+                keyFocus = e.InputManager.KeyboardFocus;
                 e.InputManager.KeyboardFocus = Command.Entry.ToPickPath(e.Camera, Command.Entry.Bounds);
                 Command.Entry.AddInputEventListener(this);
             }
@@ -97,8 +115,15 @@ namespace zoom
         public override void OnKeyUp(object sender, PInputEventArgs e)
         {
             base.OnKeyUp(sender, e);
+            //Attempt to execute a command
+            ICommand c = Command.Commands.FirstOrDefault(a => a.Name == Command.Entry.Text);
+            if (c != null)
+            {
+                c.Execute(((Window)Camera.Canvas.FindForm()).Selection, "");
+            }
+            //Remove Command Interface
             Camera.RemoveChild(Command);
-            e.InputManager.KeyboardFocus = Camera.ToPickPath();
+            e.InputManager.KeyboardFocus = keyFocus;
             Command = null;
             IsPressed = false;
         }

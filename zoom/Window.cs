@@ -5,11 +5,15 @@ using UMD.HCIL.Piccolo.Event;
 using System.Drawing;
 using System.Windows.Forms;
 using UMD.HCIL.Piccolo.Nodes;
+using UMD.HCIL.PiccoloX.Util.PStyledTextHelpers;
 
 namespace zoom
 {
     public class Window : PForm
     {
+        //private Selection selection;
+        public Selection Selection { get; protected set; }
+
         public override void Initialize()
         {
             WindowState = FormWindowState.Maximized;
@@ -19,6 +23,19 @@ namespace zoom
             Canvas.PanEventHandler = new NewPanEventHandler();
            
             Canvas.Camera.AddInputEventListener(new ShowCommandHandler(Canvas.Camera));
+        }
+
+        public void ConfirmSelection(Selection selected)
+        {
+            if (Selection != null)
+            {
+                Selection.Active = false;
+                if (Selection.Parent != null)
+                {
+                    Selection.RemoveFromParent();
+                }
+            }
+            Selection = selected;
         }
     }
 
@@ -72,9 +89,9 @@ namespace zoom
             base.OnKeyPress(sender, e);
             int x = (int)lastPoint.X;
             int y = (int)lastPoint.Y;
-            Document created = new Document(x, y,e.KeyChar);
+            Document created = new Document(x, y,e.KeyChar, (Window)Owner.FindForm(), Owner.Camera);
             Owner.Layer.AddChild(created);
-            PNode firstPage = created.Pages[0];
+            PNode firstPage = created.Pages[0].Text;
             e.InputManager.KeyboardFocus = firstPage.ToPickPath(e.Camera,firstPage.Bounds);
 
         }

@@ -4,6 +4,7 @@ using System.Drawing;
 using UMD.HCIL.Piccolo;
 using UMD.HCIL.Piccolo.Nodes;
 using UMD.HCIL.PiccoloX.Nodes;
+using UMD.HCIL.Piccolo.Util;
 using UMD.HCIL.Piccolo.Event;
 using System.Windows.Forms;
 
@@ -12,15 +13,32 @@ namespace zoom
 {
     public class Document : PNode
     {
-       public  List<Page> Pages {get; protected set;}
+       //public  List<Page> Pages {get; protected set;}
+
+        public Window Window { get; protected set; }
+
+        public Page[] Pages
+        {
+            get
+            {
+                List<Page> output = new List<Page>();
+                PNodeList children = ChildrenReference;
+                foreach (PNode node in children)
+                {
+                    if (node is Page)
+                    {
+                        output.Add((Page)node);
+                    }
+                }
+                return output.ToArray();
+            }
+        }
 
 
-       public Document(int x, int y, char c)
+       public Document(int x, int y, char c, Window w, PCamera camera)
        {
-           Pages = new List<Page>();
-           Page first = new Page(x, y, c, this, null, null);
-           Pages.Add(first);
-           AddChild(first);
+           Window = w;
+           Page first = new Page(x, y, c, this, null, null, camera);
            AddInputEventListener(new DocDragHandler());
            
            

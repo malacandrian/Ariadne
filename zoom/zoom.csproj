@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandInterface.cs" />
+    <Compile Include="Commands\BoldCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ItalicCommand.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="PageSize.cs" />
     <Compile Include="Document.cs" />

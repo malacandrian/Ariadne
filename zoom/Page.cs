@@ -21,27 +21,33 @@ namespace zoom
         public Page Prev { get; protected set; }
         public Page Next { get; protected set; }
         protected PPath Cursor { get; set; }
+        private PCamera Camera;
 
-        /*public override void OnKeyDown(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
+        public Window Window
         {
-            base.OnKeyDown(e);
-            Text.OnKeyDown(e);
+            get
+            {
+                return Doc.Window;
+            }
         }
-        public override void OnKeyPress(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
-        {
-            base.OnKeyPress(e);
-            Text.OnKeyPress(e);
-        }
-        */
+
         public override void OnClick(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
         {
             base.OnClick(e);
             Text.OnClick(e);
-            e.InputManager.KeyboardFocus = this.ToPickPath(e.Camera,Bounds);
+            e.InputManager.KeyboardFocus = Text.ToPickPath(e.Camera,Bounds);
         }
 
-        public Page(int x, int y, char c, Document parent, Page pr, Page nx)
+        public Page(int x, int y, char c, Document parent, Page pr, Page nx, PCamera camera)
         {
+            parent.AddChild(this);
+
+            Doc = parent;
+            Prev = pr;
+            Next = nx;
+
+            Camera = camera;
+
             SetBounds(x, y, PageSize.A4.Width, PageSize.A4.Height);
             PPath border = PPath.CreateRectangle(x, y, PageSize.A4.Width, PageSize.A4.Height);
             border.Pen = Pens.Black;
@@ -56,16 +62,17 @@ namespace zoom
 
             Text.RemoveInputEventListener(Text.DefaultHandler);
             Text.AddInputEventListener(new PageTextHandler(Text));
+            Text.AddInputEventListener(new ShowCommandHandler(Camera));
+
+            Text.ConfirmSelection += Window.ConfirmSelection;
 
             Text.Reflow += new ReflowEvent(Reflow);
 
-            Doc = parent;
-            Prev = pr;
-            Next = nx;
-
-            AddInputEventListener(new SelectEventHandler());
+            
 
         }
+
+
 
         protected void Reflow()
         {
@@ -78,47 +85,12 @@ namespace zoom
                 }
                 else
                 {
-                    Next = new Page((int)X, (int)(Y + Height + 10), ' ', Doc, this, null);
+                    Next = new Page((int)X, (int)(Y + Height + 10), ' ', Doc, this, null, Camera);
                     Next.Text.Text = Text.OverFlow;
                     Doc.AddChild(Next);
-                    Doc.Pages.Add(Next);
                 }
                 Text.ClearOverFlow();
             }
-        }
-    }
-    public class SelectEventHandler : PDragSequenceEventHandler
-    {
-        protected PointF DragStart;
-
-        public override bool DoesAcceptEvent(PInputEventArgs e)
-        {
-            if (base.DoesAcceptEvent(e))
-            {
-                if (!e.Handled && e.IsMouseEvent && e.Button == MouseButtons.Left)
-                {
-                    e.Handled = true;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        protected override void OnStartDrag(object sender, PInputEventArgs e)
-        {
-            base.OnStartDrag(sender, e);
-            DragStart = e.Position;      
-        }
-
-        protected override void OnDrag(object sender, PInputEventArgs e)
-        {
-            base.OnDrag(sender, e);
-            ((Page)sender).Text.Select(DragStart, e.Position);
-        }
-
-        protected override void OnEndDrag(object sender, PInputEventArgs e)
-        {
-            base.OnEndDrag(sender, e);
         }
     }
 
@@ -129,10 +101,19 @@ namespace zoom
         {
         }
 
-        /*public override bool DoesAcceptEvent(PInputEventArgs e)
+        public override bool DoesAcceptEvent(PInputEventArgs e)
         {
-            return e.IsKeyEvent && e.KeyCode != Keys.ControlKey && base.DoesAcceptEvent(e);
+            return ((e.IsKeyEvent && e.KeyCode != Keys.ControlKey) || e.IsKeyPressEvent) && base.DoesAcceptEvent(e);
         }
-         */
+
+        public override void OnKeyDown(object sender, PInputEventArgs e)
+        {
+            base.OnKeyDown(sender, e);
+        }
+
+        public override void OnKeyPress(object sender, PInputEventArgs e)
+        {
+            base.OnKeyPress(sender, e);
+        }
     }
 }
