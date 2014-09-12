@@ -11,6 +11,7 @@ using UMD.HCIL.PiccoloX.Util.PStyledTextHelpers;
 using System.Drawing.Drawing2D;
 using UMD.HCIL.Piccolo.Event;
 using System.Windows.Forms;
+using zoom.Interfaces;
 
 namespace zoom
 {
@@ -62,7 +63,8 @@ namespace zoom
 
             Text.RemoveInputEventListener(Text.DefaultHandler);
             Text.AddInputEventListener(new PageTextHandler(Text));
-            Text.AddInputEventListener(new ShowCommandHandler(Camera));
+            Text.AddInputEventListener(((Window)Camera.Canvas.FindForm()).CommandHandler);
+            Text.AddInputEventListener(((Window)Camera.Canvas.FindForm()).FindHandler);
 
             Text.ConfirmSelection += Window.ConfirmSelection;
 
@@ -80,13 +82,17 @@ namespace zoom
             {
                 if (Next != null)
                 {
-                    Next.Text.Text = Text.OverFlow + Next.Text.Text;
+                    //Next.Text.Text = Text.OverFlow + Next.Text.Text;
+                    Next.Text.Document.SelectionStart = 0;
+                    Next.Text.Document.SelectionLength = 0;
+                    Next.Text.Document.SelectedRtf = Text.OverFlow + "\n";
 
                 }
                 else
                 {
                     Next = new Page((int)X, (int)(Y + Height + 10), ' ', Doc, this, null, Camera);
-                    Next.Text.Text = Text.OverFlow;
+                    //Next.Text.Document.AppendText(Text.OverFlow);
+                    Next.Text.Document.Rtf = Text.OverFlow + "\n";
                     Doc.AddChild(Next);
                 }
                 Text.ClearOverFlow();
@@ -106,12 +112,12 @@ namespace zoom
             return ((e.IsKeyEvent && e.KeyCode != Keys.ControlKey) || e.IsKeyPressEvent) && base.DoesAcceptEvent(e);
         }
 
-        public override void OnKeyDown(object sender, PInputEventArgs e)
+        public void OnKeyDown(object sender, PInputEventArgs e)
         {
             base.OnKeyDown(sender, e);
         }
 
-        public override void OnKeyPress(object sender, PInputEventArgs e)
+        public void OnKeyPress(object sender, PInputEventArgs e)
         {
             base.OnKeyPress(sender, e);
         }

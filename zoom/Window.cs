@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Windows.Forms;
 using UMD.HCIL.Piccolo.Nodes;
 using UMD.HCIL.PiccoloX.Util.PStyledTextHelpers;
+using zoom.Generator;
+using zoom.Interfaces;
+using System.Collections.Generic;
+using UMD.HCIL.Piccolo.Util;
 
 namespace zoom
 {
@@ -13,6 +17,25 @@ namespace zoom
     {
         //private Selection selection;
         public Selection Selection { get; protected set; }
+        public ShowInterfaceHandler CommandHandler;
+        public ShowInterfaceHandler FindHandler;
+
+        public Document[] Documents
+        {
+            get
+            {
+                List<Document> output = new List<Document>();
+                PNodeList children = Canvas.Layer.ChildrenReference;
+                foreach (PNode node in children)
+                {
+                    if (node is Document)
+                    {
+                        output.Add((Document)node);
+                    }
+                }
+                return output.ToArray();
+            }
+        }
 
         public override void Initialize()
         {
@@ -21,8 +44,80 @@ namespace zoom
             Canvas.Root.DefaultInputManager.KeyboardFocus = Canvas.Camera.ToPickPath();
             Canvas.ZoomEventHandler = new NewZoomEventHandler();
             Canvas.PanEventHandler = new NewPanEventHandler();
-           
-            Canvas.Camera.AddInputEventListener(new ShowCommandHandler(Canvas.Camera));
+
+            CommandHandler = new ShowInterfaceHandler(Canvas.Camera, Keys.ControlKey, new CommandInterface(Canvas.Camera));
+            Canvas.Camera.AddInputEventListener(CommandHandler);
+
+            FindHandler = new ShowInterfaceHandler(Canvas.Camera, Keys.RButton | Keys.ShiftKey, new FindInterface(this));
+            Canvas.Camera.AddInputEventListener(FindHandler);
+
+            GenerateDocs();
+
+        }
+
+        private void GenerateDocs()
+        {
+            Document[] docs = SampleDocs(4);
+            foreach (Document doc in docs)
+            {
+                Canvas.Layer.AddChild(doc);
+            }
+        }
+
+        private Document[] SampleDocs(int numDocs)
+        {
+            //Generate Sections
+            Section title = new Section(new Font("Century Gothic", 22), Color.FromArgb(128, 0, 0), new SectionSelector(), 1);
+            Section h1 = new Section(new Font("Century Gothic", 16), Color.FromArgb(128, 0, 0), new SectionSelector(), 1);
+            Section h2 = new Section(new Font("Century Gothic", 13), Color.FromArgb(128, 0, 0), new SectionSelector(), 1);
+            Section h3 = new Section(new Font("Century Gothic", 11, FontStyle.Bold), Color.FromArgb(128, 0, 0), new SectionSelector(), 1);
+            Section text1 = new Section(new Font("Century Gothic", 11), new SectionSelector(), 4);
+            Section text2 = new Section(new Font("Century Gothic", 11), new SectionSelector(), 4);
+            Section text3 = new Section(new Font("Century Gothic", 11), new SectionSelector(), 4);
+
+            //Fill out selectors
+
+            //Title Selector
+            title.NextSection.TerminateWeight = 0;
+            title.NextSection.AddSection(h1, 4);
+            title.NextSection.AddSection(text1, 1);
+
+            //H1 Selector
+            h1.NextSection.TerminateWeight = 0;
+            h1.NextSection.AddSection(text1, 2);
+            h1.NextSection.AddSection(text2, 1);
+            h1.NextSection.AddSection(h2, 2);
+
+            //H2 Selector
+            h2.NextSection.TerminateWeight = 0;
+            h2.NextSection.AddSection(text2, 2);
+            h2.NextSection.AddSection(text3, 1);
+            h2.NextSection.AddSection(h3, 2);
+
+            //H3 Selector
+            h3.NextSection.TerminateWeight = 0;
+            h3.NextSection.AddSection(text3, 1);
+
+            //Text1 Selector
+            text1.NextSection.TerminateWeight = 1;
+            text1.NextSection.AddSection(text1, 4);
+            text1.NextSection.AddSection(h1, 1);
+
+            //Text2 Selector
+            text2.NextSection.TerminateWeight = 2;
+            text2.NextSection.AddSection(text2, 8);
+            text2.NextSection.AddSection(h1, 1);
+            text2.NextSection.AddSection(h2, 1);
+
+            //Text3 Selector
+            text3.NextSection.TerminateWeight = 3;
+            text3.NextSection.AddSection(text3, 12);
+            text3.NextSection.AddSection(h1, 1);
+            text3.NextSection.AddSection(h2, 1);
+            text3.NextSection.AddSection(h3, 1);
+
+            DocGenerator docGen = new DocGenerator(title, this);
+            return docGen.GenerateDocSet(numDocs);
         }
 
         public void ConfirmSelection(Selection selected)

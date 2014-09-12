@@ -19,12 +19,22 @@ namespace zoom.Commands
         {
         }
 
-        void ICommand.Execute(UMD.HCIL.PiccoloX.Util.PStyledTextHelpers.Selection selection, string arguments)
+        void ICommand.Execute(UMD.HCIL.PiccoloX.Util.PStyledTextHelpers.Selection selection, string[] arguments)
         {
             if (selection != null)
             {
                 selection.Active = true;
-                selection.Text.SelectionFont = new Font(selection.Text.Font, FontStyle.Bold);
+                Font font = selection.Text.SelectionFont;
+                FontStyle style = font.Style;
+                if (font.Style.HasFlag(FontStyle.Bold))
+                {
+                    style &= ~FontStyle.Bold;
+                }
+                else
+                {
+                    style |= FontStyle.Bold;
+                }
+                selection.Text.SelectionFont = new Font(font, style);
             }
         }
 

@@ -11,6 +11,6 @@ namespace zoom.Commands
     {
         string Name { get; }
 
-        void Execute(Selection selection, String arguments);
+        void Execute(Selection selection, string[] arguments);
     }
 }
