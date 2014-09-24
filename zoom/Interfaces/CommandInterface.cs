@@ -29,7 +29,7 @@ namespace zoom.Interfaces
             }
         }
 
-        public CommandInterface(PCamera camera) : base()
+        public CommandInterface(PCamera camera) : base(new PImage(Properties.Resources.Gear))
         {
             Camera = camera;
 
@@ -58,6 +58,16 @@ namespace zoom.Interfaces
                 }
 
             }
+        }
+
+        public override void Press(object sender, PInputEventArgs e)
+        {
+            //Do Nothing
+        }
+
+        public override bool Accepts(PInputEventArgs e)
+        {
+            return e.IsKeyEvent && MatchKeys(Keys.F1, e.KeyData);
         }
     }
 }

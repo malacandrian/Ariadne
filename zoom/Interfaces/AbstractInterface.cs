@@ -16,8 +16,9 @@ namespace zoom.Interfaces
     {
         public PPath Background { get; protected set; }
         public PText Entry { get; protected set; }
+        public PImage Icon { get; protected set; }
 
-        public AbstractInterface()
+        public AbstractInterface(PImage icon)
         {
             Background = PPath.CreateRectangle(0, 0, 400, 100);
             Entry = new PText();
@@ -28,10 +29,21 @@ namespace zoom.Interfaces
             AddChild(Background);
             AddChild(Entry);
 
+            Icon = icon;
+            Icon.Bounds = new RectangleF(320, 20, 60, 60);
+            AddChild(Icon);
+
             Entry.AddInputEventListener(new TextEntryHandler(this));
         }
 
         public abstract void Release(object sender, PInputEventArgs e);
+        public abstract void Press(object sender, PInputEventArgs e);
+        public abstract bool Accepts(PInputEventArgs e);
+
+        protected static bool MatchKeys(Keys expected, Keys actual)
+        {
+            return (expected & actual) == expected && (expected ^ actual) == 0;
+        }
     }
 
     public class TextEntryHandler : PBasicInputEventHandler
@@ -45,7 +57,7 @@ namespace zoom.Interfaces
 
         public override bool DoesAcceptEvent(PInputEventArgs e)
         {
-            return e.IsKeyEvent && e.KeyCode != System.Windows.Forms.Keys.CapsLock && base.DoesAcceptEvent(e);
+            return e.IsKeyEvent && base.DoesAcceptEvent(e);
         }
 
         public override void OnKeyDown(object sender, PInputEventArgs e)

@@ -10,15 +10,18 @@ using zoom.Generator;
 using zoom.Interfaces;
 using System.Collections.Generic;
 using UMD.HCIL.Piccolo.Util;
+using System.Linq;
+using UMD.HCIL.PiccoloX.Nodes;
 
 namespace zoom
 {
     public class Window : PForm
     {
-        //private Selection selection;
         public Selection Selection { get; protected set; }
-        public ShowInterfaceHandler CommandHandler;
-        public ShowInterfaceHandler FindHandler;
+
+        public ShowInterfaceHandler CommandHandler { get; protected set; }
+        public ShowInterfaceHandler FindHandler { get; protected set; }
+        public DocCreateHandler DocHandler { get; protected set; }
 
         public Document[] Documents
         {
@@ -33,23 +36,29 @@ namespace zoom
                         output.Add((Document)node);
                     }
                 }
-                return output.ToArray();
+
+                return output.OrderBy(a => a.X).ThenBy(a => a.Y).ToArray();
             }
         }
 
         public override void Initialize()
         {
+            base.Initialize();
+
             WindowState = FormWindowState.Maximized;
-            Canvas.AddInputEventListener(new DocCreateHandler(Canvas));
+
             Canvas.Root.DefaultInputManager.KeyboardFocus = Canvas.Camera.ToPickPath();
             Canvas.ZoomEventHandler = new NewZoomEventHandler();
             Canvas.PanEventHandler = new NewPanEventHandler();
 
-            CommandHandler = new ShowInterfaceHandler(Canvas.Camera, Keys.ControlKey, new CommandInterface(Canvas.Camera));
+            CommandHandler = new ShowInterfaceHandler(Canvas.Camera, Keys.F1, new CommandInterface(Canvas.Camera));
             Canvas.Camera.AddInputEventListener(CommandHandler);
 
-            FindHandler = new ShowInterfaceHandler(Canvas.Camera, Keys.RButton | Keys.ShiftKey, new FindInterface(this));
+            FindHandler = new ShowInterfaceHandler(Canvas.Camera, Keys.F2 | Keys.F3, new FindInterface(this));
             Canvas.Camera.AddInputEventListener(FindHandler);
+
+            DocHandler = new DocCreateHandler(Canvas);
+            Canvas.AddInputEventListener(DocHandler);
 
             GenerateDocs();
 
@@ -186,7 +195,7 @@ namespace zoom
             int y = (int)lastPoint.Y;
             Document created = new Document(x, y,e.KeyChar, (Window)Owner.FindForm(), Owner.Camera);
             Owner.Layer.AddChild(created);
-            PNode firstPage = created.Pages[0].Text;
+            PStyledText firstPage = created.Pages[0].Text;
             e.InputManager.KeyboardFocus = firstPage.ToPickPath(e.Camera,firstPage.Bounds);
 
         }

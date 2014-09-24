@@ -32,15 +32,11 @@ namespace zoom.Interfaces
 
         public override bool DoesAcceptEvent(PInputEventArgs e)
         {
-            //if (e.IsKeyEvent && (e.KeyCode & ActivateKey) == ActivateKey && base.DoesAcceptEvent(e))
-            if (e.IsKeyEvent)
-                if ((e.KeyCode & ActivateKey) == ActivateKey)
-                    if ((e.KeyCode ^ ActivateKey) == 0)
-                        if (base.DoesAcceptEvent(e))
-                        {
-                            e.Handled = true;
-                            return true;
-                        }
+            if (Interface.Accepts(e) && base.DoesAcceptEvent(e))
+            {
+                e.Handled = true;
+                return true;
+            }
             return false;
         }
 
@@ -49,6 +45,9 @@ namespace zoom.Interfaces
             if (!IsPressed)
             {
                 base.OnKeyDown(sender, e);
+
+
+                Interface.Press(sender, e);
 
                 Interface.Entry.Text = "";
                 Camera.AddChild(Interface);
@@ -62,15 +61,18 @@ namespace zoom.Interfaces
 
         public override void OnKeyUp(object sender, PInputEventArgs e)
         {
-            base.OnKeyUp(sender, e);
+            if (IsPressed)
+            {
+                base.OnKeyUp(sender, e);
 
-            //Execute the code
-            Interface.Release(sender, e);
+                //Execute the code
+                Interface.Release(sender, e);
 
-            //Remove Command Interface
-            Camera.RemoveChild(Interface);
-            e.InputManager.KeyboardFocus = keyFocus;
-            IsPressed = false;
+                //Remove Command Interface
+                Camera.RemoveChild(Interface);
+                e.InputManager.KeyboardFocus = keyFocus;
+                IsPressed = false;
+            }
         }
     }
 }
