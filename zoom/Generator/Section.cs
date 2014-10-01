@@ -49,12 +49,7 @@ namespace zoom.Generator
 
         public Section generate(Page target)
         {
-            return generate(target.Text);
-        }
-
-        public Section generate(PStyledText target)
-        {
-            return generate(target.Document);
+            return generate(target.Model);
         }
 
         public Section generate(Model target)
@@ -64,10 +59,10 @@ namespace zoom.Generator
             target.AppendText(sectionText);
 
             //Style the text appropriately
-            target.Select(target.TextLength - sectionText.Length, sectionText.Length);
+            int sectionStart = target.TextLength - sectionText.Length;
+            if (sectionStart < 0) { sectionStart = 0; }
+            target.Select(sectionStart, sectionText.Length);
             Style.ApplyStyle(target);
-            //target.SelectionFont = Font;
-            //target.SelectionColor = Color;
 
             //Decide which type of paragraph goes next
             return getNext();
@@ -77,8 +72,6 @@ namespace zoom.Generator
         {
             int pLength = (int)Math.Ceiling(Normal.Sample((double)ParagraphLength, (double)ParagraphVariance));
             return String.Join(" ", Lorem.Sentences(pLength)) + "\n";
-            //return Lorem.Paragraph(ParagraphLength);
-
 
         }
     }

@@ -35,8 +35,8 @@ namespace zoom.Commands
             if (arguments.Length > 0 && styles.ContainsKey(arguments[0]))
             {
                 selection.Active = true;
-                selection.Text.SelectionFont = styles[arguments[0]].Font;
-                selection.Text.SelectionColor = styles[arguments[0]].Color;
+                selection.Model.SelectionFont = styles[arguments[0]].Font;
+                selection.Model.SelectionColor = styles[arguments[0]].Color;
             }
         }
     }

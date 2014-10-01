@@ -17,9 +17,9 @@ namespace zoom.Commands
             if (arguments.Length > 0 && int.TryParse(arguments[0],out size))
             {
                 selection.Active = true;
-                Font selectionFont = selection.Text.SelectionFont;
+                Font selectionFont = selection.Model.SelectionFont;
                 Font newFont = new Font(selectionFont.FontFamily, size);
-                selection.Text.SelectionFont = newFont;
+                selection.Model.SelectionFont = newFont;
             }
         }
     }

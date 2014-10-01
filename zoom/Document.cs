@@ -13,7 +13,6 @@ namespace zoom
 {
     public class Document : PNode
     {
-       //public  List<Page> Pages {get; protected set;}
 
         public Window Window { get; protected set; }
 

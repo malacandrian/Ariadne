@@ -24,7 +24,7 @@ namespace zoom.Commands
             if (selection != null)
             {
                 selection.Active = true;
-                Font font = selection.Text.SelectionFont;
+                Font font = selection.Model.SelectionFont;
                 FontStyle style = font.Style;
                 if (font.Style.HasFlag(FontStyle.Italic))
                 {
@@ -34,7 +34,7 @@ namespace zoom.Commands
                 {
                     style |= FontStyle.Italic;
                 }
-                selection.Text.SelectionFont = new Font(font, style);
+                selection.Model.SelectionFont = new Font(font, style);
             }
         }
 

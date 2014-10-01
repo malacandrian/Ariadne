@@ -25,7 +25,7 @@ namespace zoom
 
         public Style() : this(DefaultFont, DefaultColor) { }
 
-        public void ApplyStyle(PStyledText target) { ApplyStyle(target.Document); }
+        public void ApplyStyle(PStyledText target) { ApplyStyle(target.Model); }
 
         public void ApplyStyle(Model target)
         {

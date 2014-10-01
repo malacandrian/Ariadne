@@ -50,11 +50,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UMD.HCIL.Piccolo, Version=1.0.5378.19054, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UMD.HCIL.Piccolo, Version=1.0.5368.20394, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\libraries\Piccolo.NET\Source\PiccoloX\bin\Debug\UMD.HCIL.Piccolo.dll</HintPath>
     </Reference>
-    <Reference Include="UMD.HCIL.PiccoloX, Version=1.0.5378.19198, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UMD.HCIL.PiccoloX, Version=1.0.5368.20396, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\libraries\Piccolo.NET\Source\PiccoloX\bin\Debug\UMD.HCIL.PiccoloX.dll</HintPath>
     </Reference>

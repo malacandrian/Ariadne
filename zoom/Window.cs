@@ -129,7 +129,7 @@ namespace zoom
             return docGen.GenerateDocSet(numDocs);
         }
 
-        public void ConfirmSelection(Selection selected)
+        public void ConfirmSelection(Selection oldSelection, Selection newSelection)
         {
             if (Selection != null)
             {
@@ -139,7 +139,7 @@ namespace zoom
                     Selection.RemoveFromParent();
                 }
             }
-            Selection = selected;
+            Selection = newSelection;
         }
     }
 
@@ -181,10 +181,11 @@ namespace zoom
             Owner = owner;
         }
 
-        public override void OnClick(object sender, PInputEventArgs e)
+        public override void OnMouseDown(object sender, PInputEventArgs e)
         {
-            base.OnClick(sender, e);
+            base.OnMouseDown(sender, e);
             lastPoint = e.Position;
+            Owner.Focus();
             e.InputManager.KeyboardFocus = e.Path;
         }
 
@@ -195,14 +196,14 @@ namespace zoom
             int y = (int)lastPoint.Y;
             Document created = new Document(x, y,e.KeyChar, (Window)Owner.FindForm(), Owner.Camera);
             Owner.Layer.AddChild(created);
-            PStyledText firstPage = created.Pages[0].Text;
+            PStyledText firstPage = created.Pages[0];
             e.InputManager.KeyboardFocus = firstPage.ToPickPath(e.Camera,firstPage.Bounds);
 
         }
 
         public override bool DoesAcceptEvent(PInputEventArgs e)
         {
-            bool isLeftClick = e.IsClickEvent && e.Button == MouseButtons.Left;
+            bool isLeftClick = e.IsMouseEvent && e.Button == MouseButtons.Left;
             return base.DoesAcceptEvent(e) && (isLeftClick || e.IsKeyPressEvent) && e.PickedNode.GetType() == (new PCamera().GetType());
         }
     }

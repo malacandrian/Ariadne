@@ -15,10 +15,10 @@ using zoom.Interfaces;
 
 namespace zoom
 {
-    public class Page:PNode 
+    public class Page : PStyledText
     {
-        public PStyledText Text { get; protected set; }
         public Document Doc { get; protected set; }
+        public PPath Border { get; protected set; }
         public Page Prev { get; protected set; }
         public Page Next { get; protected set; }
         protected PPath Cursor { get; set; }
@@ -32,14 +32,7 @@ namespace zoom
             }
         }
 
-        public override void OnClick(UMD.HCIL.Piccolo.Event.PInputEventArgs e)
-        {
-            base.OnClick(e);
-            Text.OnClick(e);
-            e.InputManager.KeyboardFocus = Text.ToPickPath(e.Camera,Bounds);
-        }
-
-        public Page(int x, int y, char c, Document parent, Page pr, Page nx, PCamera camera)
+        public Page(int x, int y, char c, Document parent, Page pr, Page nx, PCamera camera) : base(c.ToString(), parent.Window)
         {
             parent.AddChild(this);
 
@@ -50,76 +43,44 @@ namespace zoom
             Camera = camera;
 
             SetBounds(x, y, PageSize.A4.Width, PageSize.A4.Height);
-            PPath border = PPath.CreateRectangle(x, y, PageSize.A4.Width, PageSize.A4.Height);
-            border.Pen = Pens.Black;
+            Border = PPath.CreateRectangle(x, y, PageSize.A4.Width, PageSize.A4.Height);
+            Border.Pen = Pens.Black;
 
-            AddChild(border);
+            AddChild(Border);
 
-            Text = new PStyledText("" + c);
-            Text.ConstrainHeightToTextHeight = false;
-            Text.ConstrainWidthToTextWidth = false;
-            Text.Bounds = new RectangleF(x, y, PageSize.A4.Width, PageSize.A4.Height);        
-            AddChild(Text);
+            ConstrainHeightToTextHeight = false;
+            ConstrainWidthToTextWidth = false;
+            Bounds = new RectangleF(x, y, PageSize.A4.Width, PageSize.A4.Height);        
 
-            Text.RemoveInputEventListener(Text.DefaultHandler);
-            Text.AddInputEventListener(new PageTextHandler(Text));
-            Text.AddInputEventListener(((Window)Camera.Canvas.FindForm()).CommandHandler);
-            Text.AddInputEventListener(((Window)Camera.Canvas.FindForm()).FindHandler);
+            AddInputEventListener(Window.CommandHandler);
+            AddInputEventListener(Window.FindHandler);
 
-            Text.ConfirmSelection += Window.ConfirmSelection;
-
-            Text.Reflow += new ReflowEvent(Reflow);
-
-            
+            ConfirmSelection += Window.ConfirmSelection;
+            Reflow += OnReflow;
 
         }
 
-
-
-        protected void Reflow()
+        /// <summary>
+        /// When the layout updates, move any overflow to the next page and ensure the border still exists
+        /// </summary>
+        protected void OnReflow()
         {
-            if (Text.OverFlow != "")
+            //Ensure the border still exists
+            if (IndexOfChild(Border) < 0) 
             {
-                if (Next != null)
-                {
-                    //Next.Text.Text = Text.OverFlow + Next.Text.Text;
-                    Next.Text.Document.SelectionStart = 0;
-                    Next.Text.Document.SelectionLength = 0;
-                    Next.Text.Document.SelectedRtf = Text.OverFlow + "\n";
-
-                }
-                else
-                {
-                    Next = new Page((int)X, (int)(Y + Height + 10), ' ', Doc, this, null, Camera);
-                    //Next.Text.Document.AppendText(Text.OverFlow);
-                    Next.Text.Document.Rtf = Text.OverFlow + "\n";
-                    Doc.AddChild(Next);
-                }
-                Text.ClearOverFlow();
+                AddChild(Border);
+                Border.MoveToBack();
             }
-        }
-    }
+            
+            //Move any overflow to the next page
+            if (Overflow != null)
+            {
+                if (Next == null) { Next = new Page((int)X, (int)(Y + Height + 10), ' ', Doc, this, null, Camera); }
 
-    public class PageTextHandler : TextEntryInputHandler
-    {
-        public PageTextHandler(PStyledText o)
-            : base(o)
-        {
-        }
+                Next.AddRtfAt(Overflow.Rtf, 0);
 
-        public override bool DoesAcceptEvent(PInputEventArgs e)
-        {
-            return ((e.IsKeyEvent && e.KeyCode != Keys.ControlKey) || e.IsKeyPressEvent) && base.DoesAcceptEvent(e);
-        }
-
-        public void OnKeyDown(object sender, PInputEventArgs e)
-        {
-            base.OnKeyDown(sender, e);
-        }
-
-        public void OnKeyPress(object sender, PInputEventArgs e)
-        {
-            base.OnKeyPress(sender, e);
+                ClearOverflow();
+            }
         }
     }
 }

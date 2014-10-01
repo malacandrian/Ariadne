@@ -62,7 +62,7 @@ namespace zoom.Interfaces
             {
                 StartPage = (Page)((PStyledText)focused).Parent;
                 StartDoc = StartPage.Doc;
-                StartLoc = ((PStyledText)focused).Document.CurIndex;
+                StartLoc = ((PStyledText)focused).Model.SelectionStart;
             }
             else if (focused is PCamera)
             {
@@ -124,25 +124,25 @@ namespace zoom.Interfaces
                 }
                 else
                 {
-                    startLoc = page.Text.Text.Length;
+                    startLoc = page.Text.Length;
                 }
             }
 
             int caratLocation;
             if (!reverse)
             {
-                caratLocation = startLoc + page.Text.Text.Substring(startLoc).ToLower().IndexOf(phrase) + phrase.Length;
+                caratLocation = startLoc + page.Text.Substring(startLoc).ToLower().IndexOf(phrase) + phrase.Length;
             }
             else
             {
-                caratLocation = page.Text.Text.Substring(0,startLoc).ToLower().LastIndexOf(phrase);
+                caratLocation = page.Text.Substring(0,startLoc).ToLower().LastIndexOf(phrase);
             }
 
             if (caratLocation > 0)
             {
-                page.Text.Document.Select(caratLocation, caratLocation);
+                page.Model.Select(caratLocation, caratLocation);
                 FoundPage = page;
-                FoundPage.Text.UpdateCarat();
+                FoundPage.UpdateCarat();
                 return true;
             }
             else

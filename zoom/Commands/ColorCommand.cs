@@ -69,7 +69,7 @@ namespace zoom.Commands
             }
 
             selection.Active = true;
-            selection.Text.SelectionColor = color;
+            selection.Model.SelectionColor = color;
             return;
         }
     }
