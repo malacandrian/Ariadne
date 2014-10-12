@@ -1,0 +1,1995 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="20c176f0-115c-4333-a718-ae13e48e192c"
+  name="WebServiceHelpers"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="335327c7-e094-482a-b3eb-24172ac4241f"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dzoom.WebServiceHelpers"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="a37f5e01-9bdb-4a75-8019-feca3a623159"
+        name="AzureServiceHelper"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="dddf1caf-6080-4f42-9c17-6cf65e7cc4d9"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="80e5e802-a977-433e-a7b2-4e77c79d62d8"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ce7c4954-b512-4160-8725-3018b0c437de">
+                <propertyInstance
+                  Id="75da4fba-0bf9-4023-b68a-1f68ec5e95b0"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1f422c22-0736-40ff-8980-2f9e6c05bc8f">
+                <propertyInstance
+                  Id="7b88170d-e977-4ed5-81ed-56a940e69b0c"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d216edaa-0b55-4783-9a24-d860f4debe27">
+                <propertyInstance
+                  Id="b5fd6aa2-b2c4-46f4-b4b0-421d5ea5e73d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="04236920-284c-4ae7-addf-68396772ef99">
+                <propertyInstance
+                  Id="d276b536-21b1-4c1b-b0ee-61170be88f03"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1dd9e30f-61cb-4245-9ee9-286bea5aa882">
+                <propertyInstance
+                  Id="0bd0353d-8f37-4677-91a3-3cb330c43edf"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="6dd14732-ca37-4011-b46b-9d042388298c"
+            name="ServiceURI"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="10014be2-4486-4e5e-83c3-8fae707aa1a0"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3DServiceURI"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="50ac147a-e00a-4715-b866-0924e8b83d88"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94c2834e-aa7a-4990-8b26-47ec76390838">
+                    <propertyInstance
+                      Id="d8d10c82-0ced-4f77-8cb4-fdc717576ae1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c968e852-fdf9-4ac5-a21b-ead3c2f1a910">
+                    <propertyInstance
+                      Id="9494c8df-674b-4947-a1cb-4899a31778ac"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1357c67b-aa3c-4c1f-bda2-268685305e7f">
+                    <propertyInstance
+                      Id="ec4977c1-80cf-4b7e-b35a-55132a1bcbbf"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d97b9ac1-d1bc-42da-a210-76dfef0158ec">
+                    <propertyInstance
+                      Id="a963bc5f-0344-4a41-a018-a211866f5215"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd5c7044-5865-4486-971f-f501fdf57356">
+                    <propertyInstance
+                      Id="f335f0f2-6357-4702-afcb-81dcf89bf378"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="35fdb46e-5c41-4fcf-a341-7b8614f6186a"
+            name="Token"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b9b9bf0a-6c9a-4bce-98d8-3bd416aa51b8"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3DToken"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e0274b43-c767-4019-961e-26ef541f6ae4"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="02724e77-d1c6-4ba9-8e8a-2ba2a6fa7c14">
+                    <propertyInstance
+                      Id="59449803-2b2f-4c67-b888-a660a1a1d783"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="31dbf0b4-88e2-49cf-b3ef-3f89ef826f01">
+                    <propertyInstance
+                      Id="d4e2a54f-f6d7-4e7e-86ad-8f4221bf10e9"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5507e969-e25a-42b7-b5d5-e897f05c4407">
+                    <propertyInstance
+                      Id="3edd8116-8d6d-47c7-88dc-9c5fafa7fd15"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6c921c3f-58b8-4101-b659-c6a52b22cf9c">
+                    <propertyInstance
+                      Id="3bf7ec47-b4f6-4f02-b46f-ac42e9664a67"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="792abc09-27d5-46b4-b6c0-d4a73ad41cff">
+                    <propertyInstance
+                      Id="c7e12148-0c61-4e8a-8f82-79ce926daeb3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="787448fd-c76b-4f81-9e8a-e33705e06c8b"
+                LastKnownName="AzureToken"
+                LastKnownLocation="Package1_0852.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9370ea59-2713-4653-856d-f0fab00b1d69"
+            name="AzureServiceHelper"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="face8a82-f43c-41a9-9a84-fc44f369d797"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4017309f-09e8-4f14-b1fd-803043ab1539"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db079522-6cc6-4018-8d93-87ce0814af00">
+                    <propertyInstance
+                      Id="cca2b881-d238-42f6-b81c-e2fdef692fa5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7a510449-9013-4b6b-a59c-c616af61f4b7">
+                    <propertyInstance
+                      Id="839bf441-d9e2-4c44-9adb-c1187ce283e2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6578897d-fbba-49bf-86b3-8405fe20bd8d">
+                    <propertyInstance
+                      Id="3ab47385-ab00-45a3-a7b5-e0975ed4a993"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98e409c9-72f7-423b-925a-ad980d401380">
+                    <propertyInstance
+                      Id="d57c8bbc-92d6-4518-ba1a-b211d237ce48"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2dcfae5a-8f66-4b17-aec1-fdf9971145e4">
+                    <propertyInstance
+                      Id="ec3e4b79-e39c-4d7d-a268-5a140664154b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="53783205-cf48-4227-ae26-758ea56e7005">
+                    <propertyInstance
+                      Id="abd3eaba-f595-443a-b6c8-572fede239b0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="86a2f2b2-8d95-4df4-893d-50fc3a6b70f1"
+                  name="serviceUri"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="6f4f696a-49e0-46f2-a219-cce85fff6f75"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken)]) ParameterIdentifier%3DserviceUri"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40fc96a9-3791-464a-9833-dafbef9da0ad"
+                  name="token"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="5a09a932-a198-4643-bd2a-b91704fb3f2e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken)]) ParameterIdentifier%3Dtoken"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="787448fd-c76b-4f81-9e8a-e33705e06c8b"
+                      LastKnownName="AzureToken"
+                      LastKnownLocation="Package1_0852.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="08251715-c259-4cfb-9d48-877a86b9bc4f"
+            name="GenerateURL"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="61c47d98-d76a-47a6-b5c4-8211b57a2a9f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3DGenerateURL OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5e85230a-cef2-4eb9-aa78-0b9b7aebb376"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2373b332-51e1-4b44-85ef-0fc18c5346c6">
+                    <propertyInstance
+                      Id="0a511c54-c26a-426f-8563-62d7b64a2854"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3df07fd-3172-464c-8d5c-90e3e195a908">
+                    <propertyInstance
+                      Id="d345560a-3db9-436c-b1d2-083d535ed4a6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a5a92d8d-d4da-4689-b394-0a88d3a6ccf0">
+                    <propertyInstance
+                      Id="62eb620b-f503-41ae-9869-5aa5e8bb7fe8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b3cfcde-fbfb-44e6-b7b3-337ac20a88ff">
+                    <propertyInstance
+                      Id="96fa5880-236d-4ebb-ad42-bc95ffe2fe45"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f03e19f9-8800-4ca3-9531-3615427eb39a">
+                    <propertyInstance
+                      Id="74c7d849-930e-4c30-a1b4-ad4fa5053728"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7104f7e2-297b-4e47-a4f2-7786a2815cad">
+                    <propertyInstance
+                      Id="a111bbb5-dafd-4a1a-bffb-8901a248ae6a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="097a8fe0-6fae-4acd-a0f8-4abb8f355b0a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b8fcebcf-2e67-43c0-9fe6-23f6ad2a71db"
+                  name="requestDetails"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="31ee8067-d3d1-4486-827d-eef39cf20184"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3DGenerateURL OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))]) ParameterIdentifier%3DrequestDetails"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e63cabb2-f170-4b4f-864d-6a4b2c63b54e"
+                      LastKnownName="Dictionary&lt;String‎, String‎&gt;"
+                      LastKnownLocation="Package18_0851.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="930fc07b-266c-4354-9339-1711b0ae6a26"
+            name="Request"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="aa279e19-4733-4985-88fa-1b8c0b7b4f35"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3DRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="eceb2305-d4b6-41b4-9fe5-fc2310867b2d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7fd3b733-b272-4100-b663-ef32050df3a3">
+                    <propertyInstance
+                      Id="0e3b09b3-4688-4709-8030-df15c45b1a63"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4a773e64-dc6e-47e3-afaf-8f63404cc72c">
+                    <propertyInstance
+                      Id="a731c7cf-f6ac-46f1-927b-be6d7e2bd73f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ea9376a7-4431-486d-9bb2-51fef4716e3f">
+                    <propertyInstance
+                      Id="e735d2e5-79c6-436e-a427-164223857242"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2226f0fd-8c2f-4b41-a32b-2cbd2ece1328">
+                    <propertyInstance
+                      Id="cb2c5479-168d-4aa7-9b47-798a8f384b7a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="99fc0e20-e55b-4c04-ab2e-89b29ba505e8">
+                    <propertyInstance
+                      Id="288562af-d924-4397-9701-c774cd4c1912"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8ea24c70-2ebb-401b-9e67-e00fe60ac2fb">
+                    <propertyInstance
+                      Id="462cd927-8cff-4d88-873e-d3cd8d72f673"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad3d88a7-aa35-42df-94cd-dcc58dea9d6a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9b9d3908-ae57-4d15-a086-bdc8edc10561"
+                      LastKnownName="Stream"
+                      LastKnownLocation="Package_0900.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aa7dd8c7-b6d1-47b9-b6e7-dac29059b669"
+                  name="requestDetails"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="cdd66439-82f4-4d0d-8385-6400eb68e479"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3DRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))]) ParameterIdentifier%3DrequestDetails"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e63cabb2-f170-4b4f-864d-6a4b2c63b54e"
+                      LastKnownName="Dictionary&lt;String‎, String‎&gt;"
+                      LastKnownLocation="Package18_0851.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7ef6917c-5184-4ad1-8dab-4ae8fb3331dc"
+            name="SanitiseDictionary"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3d360a63-8826-438c-9474-403317cee74f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3DSanitiseDictionary OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8fadd345-748e-4725-a931-fe707eb8136d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="472e1513-fd34-47ff-9ff0-3d1afb88beca">
+                    <propertyInstance
+                      Id="8b987de9-d92e-4e2b-9a7a-26307337055d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="867e3370-9125-4dd4-8af1-6ded849660a0">
+                    <propertyInstance
+                      Id="39bd16b2-9c0f-47b7-b506-8267741c29fe"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="df2975ee-3c33-4974-abb4-63733e8eeab9">
+                    <propertyInstance
+                      Id="20518e2e-fc5b-4b00-b030-1c0d4e6575f5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ddc62269-3b85-4104-9c0c-d620f3ae2b3f">
+                    <propertyInstance
+                      Id="b1c7494c-3c6c-47bb-81d2-079fc774252d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="74ccdafb-af6d-4f32-a27b-0c12ac8f3ff6">
+                    <propertyInstance
+                      Id="7e357113-15b6-49c0-af22-090c4beeaa0b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1a5073c-6bfe-465e-a0d5-10332792bd86">
+                    <propertyInstance
+                      Id="e30c2db1-9a20-4141-9403-37577fb8b085"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aacfcdf4-b933-4d97-8980-58aa8bc03602"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e63cabb2-f170-4b4f-864d-6a4b2c63b54e"
+                      LastKnownName="Dictionary&lt;String‎, String‎&gt;"
+                      LastKnownLocation="Package18_0851.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4038df9d-2694-4220-b205-916c867ab3bf"
+                  name="dictionary"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="7249f621-09a2-4dfe-b519-40fc08c3bbb9"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureServiceHelper Member%3D(Name%3DSanitiseDictionary OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]))]) ParameterIdentifier%3Ddictionary"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="e63cabb2-f170-4b4f-864d-6a4b2c63b54e"
+                      LastKnownName="Dictionary&lt;String‎, String‎&gt;"
+                      LastKnownLocation="Package18_0851.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="787448fd-c76b-4f81-9e8a-e33705e06c8b"
+        name="AzureToken"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="0fa86a64-e6fd-471c-8ab6-8bb3df422e17"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a7b9cad3-db14-4acb-aca6-d1e10e543c73"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="433c6d80-0bf1-42c3-86cc-83ae376bf363">
+                <propertyInstance
+                  Id="1c10c33e-c197-483e-9be9-92bdf1b1db50"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="515644e4-f2a5-4e10-92a5-2ead8cefbe58">
+                <propertyInstance
+                  Id="79471d6f-172c-49e9-8b50-c62b425e3865"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ce9f61f1-679f-4bc0-8778-637068162e02">
+                <propertyInstance
+                  Id="e8c3050f-7e4a-4938-af76-b26008ff1666"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8e0ce389-7860-45e9-bb5b-c6ac922b5358">
+                <propertyInstance
+                  Id="5006f588-f9cc-4ae8-9e3d-8d09caeb4465"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ec99f226-10e6-450a-8c11-f982fb631a55">
+                <propertyInstance
+                  Id="98040c5d-a22c-4d9b-9034-2983fdc2f6c2"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="f8e9b41b-06d1-4ac3-a7a8-33b63df761d2"
+            isDerived="false"
+            sourceEndRoleName="AzureToken"
+            targetEndRoleName="ExpiresOn"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="80d8b93e-76b4-43f0-a716-0bad23b66985"
+              LastKnownName="DateTime"
+              LastKnownLocation="Package10_0851.uml" />
+            <description>Property ExpiresOn references type DateTime.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="124f1a92-16af-4b0c-95c4-c08ffb109e5d"
+                  name="AzureToken"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="76e2420e-2f2a-4a91-8667-1f7accef67a2"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="04f30497-5d8d-48f6-b0f9-6f6c4035aeca"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b8a42557-962f-4f97-a256-3ff5315e1d85"
+                  name="ExpiresOn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d2958af1-6297-4fe3-9adc-53c3a212525e"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6ba091a8-47e5-4be7-a44a-0665652f9072"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="56bc2eaf-0543-493a-aba3-4bf2970b5531"
+            name="AccessToken"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="880f2e1a-c87e-4dfd-9cb0-d4dd9b87966f"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DAccessToken"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="766c698b-d8c9-472e-942b-a0c859f33f0b"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c236489-05b1-49cc-bad0-db284758e372">
+                    <propertyInstance
+                      Id="5119e292-cd24-44c1-8c4e-9c3a1d870f75"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48c71002-b3c5-4e25-832c-071b44ca74c1">
+                    <propertyInstance
+                      Id="cf48e62c-9b1c-4cbd-93ec-087c771bb1f2"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c142cf82-2a6f-4334-aa65-5a0680b5cc57">
+                    <propertyInstance
+                      Id="4242a920-82df-4c77-8ee2-56004c029d92"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51418419-c2f3-4d11-aeb2-c975f139f4ff">
+                    <propertyInstance
+                      Id="3faad7b5-221d-48b7-99e4-17ac3dcad8f9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="498325a8-e8b9-4d00-af9f-45c4aae0eac6">
+                    <propertyInstance
+                      Id="745b7493-20ea-42a4-b151-2b05f8afebdd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93e4ded9-0244-4aaf-981f-2026f33c384b">
+                    <propertyInstance
+                      Id="8f3b23b0-ee87-4d63-abe8-a99ffee54818"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d4e6027-1ac6-49b0-8ee0-47300004cd22">
+                    <propertyInstance
+                      Id="a8831ff2-42b2-47f3-9bc4-0eac79b33da5"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1462a52f-df72-48c3-91d0-a7d90e983e32"
+            name="Active"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="77c7ba32-9998-47a4-b289-4b5c5c113827"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DActive"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4deeb5eb-f886-42a8-8de9-7bffd94530c6"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="caf07a79-5a0f-484c-bb87-c9f30847de1c">
+                    <propertyInstance
+                      Id="9ac3f090-1a26-465a-bbf2-d22691b50582"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68f9ca8e-9175-4553-82f9-3d881b29c782">
+                    <propertyInstance
+                      Id="21b886ef-f4b4-4360-9f64-603ff7914f38"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6188fa68-7b3a-4a0d-82d8-6d0903644054">
+                    <propertyInstance
+                      Id="feb113b7-e660-492a-9310-7d6ea88b7755"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5dcf17af-ac04-4cc6-b8d0-cd37d95f9779">
+                    <propertyInstance
+                      Id="472e76fe-6934-4ab3-98dc-b8f914a9fc03"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="287f9bfd-22f7-466c-8a79-d4025d972e73">
+                    <propertyInstance
+                      Id="d1e08d65-0fd4-4c98-930a-d05b64330519"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f43ef4c-1cc6-49f0-81dd-7b6e2a99f7f3">
+                    <propertyInstance
+                      Id="5b98511b-4b4a-4437-a7d1-7b8dafbe3944"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dfdf9f8d-f727-491f-9a0d-573ca77eeefc">
+                    <propertyInstance
+                      Id="3ea2a179-ec31-4d1b-85c3-a249608bd2af"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="22232715-b338-4e3a-87da-bac2a0060be3"
+            name="ClientID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="4557fb91-f327-45ff-a3b2-d50729c50ac1"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DClientID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="18652547-f10e-450a-83ca-24ed5bfc39c7"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9a656792-8fdf-45de-952a-d2ee74232655">
+                    <propertyInstance
+                      Id="9a7adf3f-c4dd-4473-914f-ceee8bee748c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cceb1518-073d-436c-b6a8-ae151252de82">
+                    <propertyInstance
+                      Id="8e1ab88a-27f6-4635-9067-8b8ae9b685b4"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a59f9ff9-017d-4991-9388-4f42df408a02">
+                    <propertyInstance
+                      Id="eae4711c-7e48-40f4-a4cb-649dc00bd4b8"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8e6bfb3a-3492-409e-bbf2-a5a2234e927d">
+                    <propertyInstance
+                      Id="73aaff62-edde-498d-8528-75f92324fd64"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e585e9d-bbf7-4f76-a817-c69e408a436d">
+                    <propertyInstance
+                      Id="8b770ee7-c906-4982-88c9-3874305c457d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a57d166e-c1df-45f0-84ff-f3dd73e67b13">
+                    <propertyInstance
+                      Id="5ea3a367-e79b-4f7c-84c2-80891fe97423"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9d5a7cd-49f5-4378-bbce-f7dbe8a78f9f">
+                    <propertyInstance
+                      Id="fe8574ce-ae63-424b-a942-a21a3af57f8b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="c9d72f44-ef12-40c4-8a36-4c093076ba6e"
+            name="ClientSecret"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="11eb6c65-7903-4b7e-abf1-932b01261ba7"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DClientSecret"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="61111e2a-b25a-4c84-898b-47a0fd450850"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b237f649-4d4a-4055-b7ba-99ca691acfe1">
+                    <propertyInstance
+                      Id="973923db-39ab-4886-a169-8d35d7232800"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f028c45b-ac19-4893-957f-60c0649d28df">
+                    <propertyInstance
+                      Id="76d09868-8f0c-4c1e-9809-6d4e332a812e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5a67bbb4-4367-413c-aa42-df94447a8a7c">
+                    <propertyInstance
+                      Id="5e8c0779-92f9-4de6-9a9c-441c6e178be3"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="461b4154-e5b0-45d5-bfe8-d3b507349431">
+                    <propertyInstance
+                      Id="9b159182-5ce6-4503-97f2-d1f20bdc94d5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a01e336-634b-4a50-89b9-555642341013">
+                    <propertyInstance
+                      Id="bdd4b6aa-4909-4eed-910c-cf5fe78c0008"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee85f0d9-77a9-47a7-956b-b24d0d4c3ee1">
+                    <propertyInstance
+                      Id="ed0e9e12-058e-4d76-b2a3-6e284944008a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee4f2c36-8442-4f01-a996-e761a89b8c2a">
+                    <propertyInstance
+                      Id="0295d0b4-69b5-4cc8-bd44-4918972189db"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="36edbcf2-05d9-49fc-9964-af8be2ccbfda"
+            name="EncodedId"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="90ad5359-5ef2-4b61-b58b-841f697876de"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DEncodedId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b6655b8c-4c3a-4401-bb96-8e0c5aba7d3e"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="72b2f145-66ec-48ec-8afc-f09bd94baebe">
+                    <propertyInstance
+                      Id="73d02744-7104-426a-9ba8-eaab396f502f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24be4105-1161-448c-83a1-ca400c633f2c">
+                    <propertyInstance
+                      Id="19f9833c-27fc-40a8-a42c-ee2e59323811"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a5034d5a-b920-402c-82dc-34c5ad84dfb2">
+                    <propertyInstance
+                      Id="60316c24-3de5-4f4d-9944-eaf312020d82"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0af537a6-58e0-4083-b007-fac39b9e291f">
+                    <propertyInstance
+                      Id="c4a72b1b-60a9-4326-bfa6-b20b4fe2a6e6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e8b0815-aeb6-4d52-a54f-0531f8cc15b3">
+                    <propertyInstance
+                      Id="b022e477-52a1-4945-afed-ec886fdf1425"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="461b321b-0f8a-467a-9145-bd53a0839449">
+                    <propertyInstance
+                      Id="d6902cce-364e-4d98-b28f-f450d3bf1d2f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b520c7f1-e3b0-49e2-80c8-0b7cbe59ffbd">
+                    <propertyInstance
+                      Id="87b79f2c-e133-4ee6-9126-35d61cddf45d"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="71b337e4-89e5-4cbd-be66-cca88c98ea4b"
+            name="EncodedScope"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="0a3ed04b-845b-490e-b9ee-17881b3436de"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DEncodedScope"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5dc2183e-731d-4e7f-bc2b-40fa748bb46c"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0392b4c0-9138-475e-a5ce-46a7e7b881ae">
+                    <propertyInstance
+                      Id="d27ae506-6b93-47ed-bda6-fea4779649bb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23ddf93f-50b8-4440-b89a-e5dc490337c4">
+                    <propertyInstance
+                      Id="a4cd6859-1d5a-4826-8bea-4405e998b666"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54dd349d-4674-4756-a56b-9c82cadda840">
+                    <propertyInstance
+                      Id="c8e4724d-cd5e-4474-90fa-c1c1730bdaac"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c8ef1796-78fc-4c9e-a359-54108c9fed16">
+                    <propertyInstance
+                      Id="35bd74db-d57f-44c9-9ef0-305c499dc3ba"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="41fce4fd-65c2-41f9-bca2-4e035a335920">
+                    <propertyInstance
+                      Id="5903430d-ce8b-4738-b0cf-420db650703a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57b5053f-8732-477a-9b77-c3d2063a75e0">
+                    <propertyInstance
+                      Id="416569ed-a290-4600-97c4-0a18ee68566e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c5a4205e-41ad-4cec-9eaf-d6bfc6a2c73c">
+                    <propertyInstance
+                      Id="fe83c3aa-3bed-437b-be66-84eab7983f33"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3dd892c1-5ea1-44e8-adc4-7dd9b83cbd1f"
+            name="EncodedSecret"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d6f8ae76-0a58-4fb3-9517-e14f46e28b26"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DEncodedSecret"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fc6ffd5b-5d46-4ea2-9fc9-124685aea8cd"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0c4ca1d-290e-4a65-90e5-671a279ea0f6">
+                    <propertyInstance
+                      Id="7455b685-3b52-4fed-9409-1a904fb54e44"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90da6ac8-a8fb-450e-9320-3821915f98b9">
+                    <propertyInstance
+                      Id="bdd46d0f-d03c-4fb7-8998-b434055eceaf"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3df29e2a-3383-474b-804b-acd1dd539a82">
+                    <propertyInstance
+                      Id="360298a2-45e4-4c75-a3f7-082fc3010335"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a225693b-10b2-40d1-acd2-d2e60d7351b4">
+                    <propertyInstance
+                      Id="c9b3f189-512c-4b12-bad1-ab1ac4cfb39a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="786facd3-74cf-4268-9d4e-7515915273ba">
+                    <propertyInstance
+                      Id="2b74c46b-6e7a-4baa-b0a2-bc4208c3b75a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4c8ec36-f9a8-4ed5-a8d7-29c67115d029">
+                    <propertyInstance
+                      Id="a58a8528-61ad-4b41-9c70-762ba1bcb7f7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20df0fac-d6b3-4674-a1fc-023fcf3ca785">
+                    <propertyInstance
+                      Id="4b761208-e7cc-4891-be90-cdb2e42035f4"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="94e145db-7db6-4e73-be6d-0937e7dfa484"
+            name="ExpiresOn"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="bdea6c7d-1540-42ea-8ba7-def8fa3a677d"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DExpiresOn"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="25b2f322-d778-485a-87bb-4b9c7fd3badd"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b7355f93-e13a-4dde-b689-80492cf268bc">
+                    <propertyInstance
+                      Id="a0f24da6-9e79-4222-922d-67edc84022fd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9dfffa6-e59a-499a-b81d-3d1f47632696">
+                    <propertyInstance
+                      Id="f1284f4c-bc4c-4399-8ad1-fedf30c61cd6"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0957b669-f96b-4c97-b89b-fe09f27c4138">
+                    <propertyInstance
+                      Id="ccbbb4d3-7f59-4f90-a51a-11de6b6e9a2d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e042fb4-44fd-4744-93ad-f487ddf2be26">
+                    <propertyInstance
+                      Id="f00899d7-81d0-48d4-bc5f-1e279ec3b4c4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e6bb3bbb-947c-45ab-afab-94de1dc7ac6d">
+                    <propertyInstance
+                      Id="8d496b2b-8996-4f7a-a1ea-3f5746be74ff"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e6c270d8-c4f2-4fb6-9c0b-ede50a447216">
+                    <propertyInstance
+                      Id="666a42c4-f7ae-47af-aa51-d1bafc294e51"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19c4bb93-5dfb-4639-97d1-5f80f4642ec7">
+                    <propertyInstance
+                      Id="d7fc44df-8178-417e-8757-5be73ab883a3"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="80d8b93e-76b4-43f0-a716-0bad23b66985"
+                LastKnownName="DateTime"
+                LastKnownLocation="Package10_0851.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="39b8b243-a88a-4563-9b6f-d217e6f1605d"
+            name="Scope"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="34e2ec0b-2303-4ab1-b3a4-fdfe4de30af2"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DScope"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0eb816a6-f5aa-49c6-bd46-af9a78438de2"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="461483de-3a81-4078-8ca8-1ac5e25d756e">
+                    <propertyInstance
+                      Id="1527445f-478d-430f-9f49-21e8da66c8eb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ed89df0-832b-40fc-87ef-9e7edcd58c1b">
+                    <propertyInstance
+                      Id="5effc12e-5a46-42b0-969c-9c6ce56d984f"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8251d062-d9fd-48bc-aca6-0d95d7016de4">
+                    <propertyInstance
+                      Id="8a232c21-70cf-4de0-93bd-9b02394d8e1d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e67b6b2b-0753-4698-a1b1-f107027cec93">
+                    <propertyInstance
+                      Id="0ca6b123-a4df-4c5b-a3a2-51b200819716"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="794ed387-d01b-43ba-b207-4b077fdbef73">
+                    <propertyInstance
+                      Id="4bd05659-6ca2-4d5e-8623-74c722362bfa"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="581a6905-29bb-4a37-8779-e5209a8b6540">
+                    <propertyInstance
+                      Id="d5c6687e-04cc-4774-a093-cf50b0f8391f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49f02d0a-e1d6-4106-920f-3ede29866f3b">
+                    <propertyInstance
+                      Id="e0a07bf3-da01-4249-9b0b-6a441fe8bdda"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="569ceaac-53a0-454f-aeb6-4b5bf4f35afe"
+            name="TokenType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="19570d80-154f-4d62-aa90-1b02648e832e"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DTokenType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7d3dbfa1-bb96-43d5-84d3-627506b6565c"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0f531b2-9318-4393-ae58-3ab2bf4ae180">
+                    <propertyInstance
+                      Id="cf22a3cd-d6e7-42d7-9555-b83bff02dde8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24bd4bc6-a56b-4feb-93de-9bca5c0a3482">
+                    <propertyInstance
+                      Id="7f8a990a-b705-42c6-98e0-dcd5c75ca914"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8871aa6-22ee-4ec4-8e23-359dab479477">
+                    <propertyInstance
+                      Id="e1a75196-a7d1-49f3-877c-dc921218c4ce"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="460dd941-da26-4f7a-90c9-a99a25cfb086">
+                    <propertyInstance
+                      Id="c34d8af5-543c-4337-80a3-7f706f7c8c97"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b98cb49-157a-4a60-b98d-c83dd2f2422c">
+                    <propertyInstance
+                      Id="21cdee36-0a12-43ba-b7c8-ef5f6b9e3c7c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c168b28b-f2af-4dcc-930f-cc8fae114b7f">
+                    <propertyInstance
+                      Id="2983c43e-0264-457c-9821-07fbe514d266"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="386193e6-f7bf-4059-b596-f4527623fe32">
+                    <propertyInstance
+                      Id="145fb088-8359-4573-83b3-ca8e8b2549dc"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="88a49886-0a66-48eb-8bfa-6f6abbf5f026"
+            name="DataMarketURI"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="95c04037-066c-426b-8686-14fe612f2099"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DDataMarketURI"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="55d7839d-ef15-4eae-9137-1b82c1699b91"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e2b9101a-c264-4975-abed-761acd38754d">
+                    <propertyInstance
+                      Id="1b9061fd-ff4f-4b9d-a964-032a4a0d3109"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8bc0b4aa-68e5-45d9-bc14-3570072f6435">
+                    <propertyInstance
+                      Id="676f5da8-d80f-4ce2-8396-d5469cd38faf"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0b23eaf-1095-47c9-ae70-f249baefd346">
+                    <propertyInstance
+                      Id="f332ee4c-b4d2-4fea-be13-6ee9af9a4de7"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71b9fdeb-9315-4455-86a5-926c2877d30b">
+                    <propertyInstance
+                      Id="e200da8c-9250-4610-b945-d2e1a8244c39"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2978d468-3222-4131-9d5b-3ed6490f97e2">
+                    <propertyInstance
+                      Id="e2971c37-7b2c-4089-bcf8-1a09d0b21a1f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="17f4acc6-4387-4102-8784-dcc91670de40"
+            name="token"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e185f70c-236d-4a87-9de8-a0ec3ea19734"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3Dtoken"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1d63861a-defe-49cb-8068-e2895e3fd63b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bdbdeca4-b99f-40b7-b139-82066d7a826a">
+                    <propertyInstance
+                      Id="bf14a50e-8e4c-41d8-a23a-ab110bbef153"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="587d91d4-6154-47d7-8e4a-fca9ab3c8136">
+                    <propertyInstance
+                      Id="dcbbf5af-bae4-4b3a-8f48-36a281ea9622"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="72b8af0f-a4c2-4fea-9dd5-b5d1c25b590e">
+                    <propertyInstance
+                      Id="9f8490c3-2482-47f1-924f-00f61a1bbc33"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a5311bb2-671b-4184-bfa6-74ea404b7cd3">
+                    <propertyInstance
+                      Id="64772ce3-423a-4f66-96bf-08e1823fd389"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="389e741c-ae0f-4152-8da4-69aaa67bae26">
+                    <propertyInstance
+                      Id="ca032599-e448-448f-bb65-bc0460724e79"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8a178ff3-7ac4-4deb-83e2-a41361a9e361"
+                LastKnownName="AdmAccessToken"
+                LastKnownLocation="Package1_0900.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="81aba95e-834c-4be7-afda-9b1846a9972e"
+            name="AzureToken"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1f75463d-41ee-4411-9bea-a638514310e0"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="334c3aad-1735-4751-b94a-6b13ae3d87b9"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e45b58f-fc51-4ee4-a450-372d4d2b5df8">
+                    <propertyInstance
+                      Id="bcba7598-05af-47b7-bfbe-de500763207a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5a8c2248-83e5-43c7-95cc-7e643885318a">
+                    <propertyInstance
+                      Id="1ec5ce1c-92b4-47c7-883b-7a378d825fb9"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9287f902-cd60-42b1-97b0-402f277da17e">
+                    <propertyInstance
+                      Id="532ac213-f0a9-4dfd-bd7b-b50cf7544c31"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d30b876-74f0-4ad6-b264-53d3ffffa1c8">
+                    <propertyInstance
+                      Id="e97ccdff-e97e-4b89-8fb6-b346db07c64e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9770e8f8-4b44-4753-bd6f-a9595cbba9e2">
+                    <propertyInstance
+                      Id="8d55ddb8-a071-4924-9d0b-5d8c45b07b2f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4cdd195a-65d1-4907-b709-b51c788ea782">
+                    <propertyInstance
+                      Id="ee0f5c8f-b3d6-48fd-a00a-c8a929d02a16"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f30f6909-4a9f-431b-9d9f-03755031e4bf"
+                  name="clientId"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4d7d3fd3-7006-4df7-809e-42a8a70bffdd"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DclientId"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b5a2079c-c992-4540-8984-781588250fcd"
+                  name="clientSecret"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="96c42632-aa9b-458e-b59f-54053d60e05f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DclientSecret"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dfaa3eef-c5ae-42a2-8d22-be204963b0b4"
+                  name="scope"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="7ff32c4b-5eff-41df-bdef-cde9f8856555"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dscope"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="557c61f6-e250-4ac2-b99f-d3f967963804"
+            name="HttpPost"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e1fcd41d-9fde-424d-a9dd-3088565d6fef"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3D(Name%3DHttpPost OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="06f00165-c1b1-4ace-911a-6d22c3a382a3"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="564b6ca4-f305-4ff9-a5e7-7006a61070a4">
+                    <propertyInstance
+                      Id="e1155756-3716-4445-8e1e-3fcccee8b663"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a1aed599-256c-4df9-89af-e30bc2eb73f7">
+                    <propertyInstance
+                      Id="2f9d6575-488a-4144-bd50-0bbda4ba3771"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ab21035a-d822-4092-a246-d78d142d1496">
+                    <propertyInstance
+                      Id="64c2e055-273e-4e89-8856-f5f121e31f64"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7116f6d0-cabc-40b3-b8f0-ff9fc88ab419">
+                    <propertyInstance
+                      Id="1c201939-771c-462a-8885-4ac9b573b58c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60e8a9bb-15f6-4210-aac1-5d6ba1ec98f5">
+                    <propertyInstance
+                      Id="148d2065-db4d-4aa2-afe6-e25f6a63f8f1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="887b1a7f-8bba-4f7f-bf62-2278339ab79c">
+                    <propertyInstance
+                      Id="945e040f-8d9c-4524-a4bb-fbf0ab17bd43"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="218f8a8b-7b95-423a-b1ed-145985614ec6"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="8a178ff3-7ac4-4deb-83e2-a41361a9e361"
+                      LastKnownName="AdmAccessToken"
+                      LastKnownLocation="Package1_0900.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2bb3cf53-1667-4448-b043-09f221af476b"
+                  name="DatamarketAccessUri"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f76a16f9-de83-4041-86fd-a40408bbe343"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3D(Name%3DHttpPost OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DDatamarketAccessUri"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f0a72775-e2dc-4618-8c8f-2538221dabde"
+                  name="requestDetails"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c704c28f-e461-4a59-b62a-2e1af92f4b47"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3D(Name%3DHttpPost OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DrequestDetails"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="eee8b327-555f-49a2-8531-dec0894167d1"
+            name="RequestToken"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="cad2d2b9-3aec-475a-b1ad-21e71833bff6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3Dzoom.WebServiceHelpers Type%3DAzureToken Member%3DRequestToken"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ffa1cceb-b87a-4c3a-872f-2f3df588df16"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66985702-b1b1-4e68-a772-6e11e3bec5c3">
+                    <propertyInstance
+                      Id="99872e5a-1a52-49df-99fc-aac68f2d9437"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d619e80-854d-4d9c-9e41-536bc839cebc">
+                    <propertyInstance
+                      Id="62b31f72-5433-42c3-bec4-44d4a9496c4d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="091ef739-964d-4641-8368-9809f8db2d78">
+                    <propertyInstance
+                      Id="83aefdba-df95-45eb-a3e7-afaa2d3460e2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e2b9fdc-c4b6-4323-a9d3-2118f3b18560">
+                    <propertyInstance
+                      Id="28d4c436-2cfe-4238-9c41-4e3781734058"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="844ec4de-47a9-414d-8fa8-aa9b242d0111">
+                    <propertyInstance
+                      Id="77b8232d-fdb6-469c-b08f-3a86e2138308"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a2d0ecc-5691-40ce-9a5f-6f36a3908126">
+                    <propertyInstance
+                      Id="cb5c5e02-5c88-426b-b572-ff9b072de8ab"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="71719347-3aff-4010-ae35-b565f5593597"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

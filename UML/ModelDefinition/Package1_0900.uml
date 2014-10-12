@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="c85493cf-9bd6-49cc-8dee-f33ae1d76583"
+  name="TranslatorForAzure"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="81c8d3b6-f126-4fe6-9a96-0518b34a7446"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DTranslatorForAzure"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="8a178ff3-7ac4-4deb-83e2-a41361a9e361"
+        name="AdmAccessToken"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="b94f9288-f46b-472f-a3ba-72dcc345c769"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FEvan%2FDocuments%2FVisual Studio 2012%2FProjects%2Ffyp%2Fzoom%2Fbin%2FDebug%2Fzoom.exe&quot; Namespace%3DTranslatorForAzure Type%3DAdmAccessToken"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="860b026e-3acd-44be-a16f-d7b8027ac493"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bf93e538-7a0c-49da-81bb-1143fee42d1f">
+                <propertyInstance
+                  Id="01e87907-a8ee-447a-b291-322b5bafa41e"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="23183eda-ae8e-4386-aefd-2eed9c364f7a">
+                <propertyInstance
+                  Id="c85e0653-4b7b-4146-935b-ccfc0c0e6869"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="de732cdd-11e5-4e01-86b9-9586b03ccf28">
+                <propertyInstance
+                  Id="6a80b48b-3225-4437-9051-ea1250d5e93b"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c501a9e4-271b-4a8c-94cf-6832594d32c9">
+                <propertyInstance
+                  Id="a3180f8c-922c-482d-aec3-a50646706038"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6a7c6360-d824-4454-bcca-b185ce5dac13">
+                <propertyInstance
+                  Id="e3e5aade-ba19-428e-ad3f-d533e3f08974"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

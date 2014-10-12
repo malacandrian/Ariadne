@@ -3,6 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zoom", "zoom\zoom.csproj", "{0468413C-D87D-447B-8255-00A0DB2EB3DF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{60D96611-BD5C-4B90-84A3-87C2D4DB1419}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "UML", "UML\UML.modelproj", "{85CDBAF0-04C3-4978-AB17-66A3F6DABD4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +22,10 @@ Global
 		{0468413C-D87D-447B-8255-00A0DB2EB3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0468413C-D87D-447B-8255-00A0DB2EB3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0468413C-D87D-447B-8255-00A0DB2EB3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85CDBAF0-04C3-4978-AB17-66A3F6DABD4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85CDBAF0-04C3-4978-AB17-66A3F6DABD4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85CDBAF0-04C3-4978-AB17-66A3F6DABD4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85CDBAF0-04C3-4978-AB17-66A3F6DABD4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

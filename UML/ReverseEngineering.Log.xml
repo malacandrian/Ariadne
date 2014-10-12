@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 11.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2014-10-06T09:00:33" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '9ed93b9d-723b-4620-9467-fe42ecf8a50d' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ce9fca29-e1d3-49a7-907c-e3ba5f3a880f' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::System' -  (Package)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::System::Collections' -  (Package)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::System::Collections::Generic::Dictionary' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::System::Collections::Generic::Dictionary&lt;String‎, String‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::System::DateTime' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::System::IO' -  (Package)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::System::IO::Stream' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::TranslatorForAzure' -  (Package)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::TranslatorForAzure::AdmAccessToken' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom' -  (Package)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers' -  (Package)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper' -  (Class)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::AzureServiceHelper' -  (Operation)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::AzureServiceHelper::serviceUri' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::AzureServiceHelper::token' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::GenerateURL' -  (Operation)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::GenerateURL::requestDetails' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::Request' -  (Operation)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::Request::requestDetails' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::SanitiseDictionary' -  (Operation)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::SanitiseDictionary::dictionary' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::ServiceURI' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureServiceHelper::Token' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Medium" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken' -  (Class)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::AccessToken' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::Active' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::AzureToken' -  (Operation)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::AzureToken::clientId' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::AzureToken::clientSecret' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::AzureToken::scope' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::ClientID' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::ClientSecret' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::DataMarketURI' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::EncodedId' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::EncodedScope' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::EncodedSecret' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::ExpiresOn' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::HttpPost' -  (Operation)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::HttpPost::DatamarketAccessUri' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::HttpPost::requestDetails' -  (Parameter)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::RequestToken' -  (Operation)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::Scope' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::token' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML::zoom::WebServiceHelpers::AzureToken::TokenType' -  (Property)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: UML::zoom::WebServiceHelpers::AzureToken to UML::System::DateTime (Association)" />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="High" Text="(2) type(s) fully reverse engineered." />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="High" Text="(5) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2014-10-06T09:00:37" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

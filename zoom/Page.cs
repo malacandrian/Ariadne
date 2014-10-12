@@ -12,6 +12,8 @@ using System.Drawing.Drawing2D;
 using UMD.HCIL.Piccolo.Event;
 using System.Windows.Forms;
 using zoom.Interfaces;
+using System.Collections.ObjectModel;
+using UMD.HCIL.Piccolo.Util;
 
 namespace zoom
 {
@@ -23,6 +25,16 @@ namespace zoom
         public Page Next { get; protected set; }
         protected PPath Cursor { get; set; }
         private PCamera Camera;
+
+        public static Page LastPage;
+        public static readonly ReadOnlyDictionary<Keys, ShowInterfaceHandler> EscapeKeys
+            = new ReadOnlyDictionary<Keys, ShowInterfaceHandler>(
+                new Dictionary<Keys, ShowInterfaceHandler>()
+                {
+                    {Keys.F1, Window.CommandHandler},
+                    {Keys.F2, Window.FindHandler},
+                    {Keys.F3, Window.FindHandler}
+                });
 
         public Window Window
         {
@@ -42,22 +54,59 @@ namespace zoom
 
             Camera = camera;
 
-            SetBounds(x, y, PageSize.A4.Width, PageSize.A4.Height);
-            Border = PPath.CreateRectangle(x, y, PageSize.A4.Width, PageSize.A4.Height);
-            Border.Pen = Pens.Black;
-
-            AddChild(Border);
-
+            
+            
             ConstrainHeightToTextHeight = false;
             ConstrainWidthToTextWidth = false;
-            Bounds = new RectangleF(x, y, PageSize.A4.Width, PageSize.A4.Height);        
+            Bounds = new RectangleF(x, y, PageSize.A4.Width, PageSize.A4.Height);
 
+            DrawBorder();
+
+            //Add event listeners
             AddInputEventListener(Window.CommandHandler);
             AddInputEventListener(Window.FindHandler);
 
             ConfirmSelection += Window.ConfirmSelection;
             Reflow += OnReflow;
 
+            Model.KeyDown += Model_KeyDown;
+        }
+
+        public override void OnMouseDown(PInputEventArgs e)
+        {
+            LastPage = this;
+            base.OnMouseDown(e);
+        }
+
+        public override void OnGotFocus(PInputEventArgs e)
+        {
+            LastPage = this;
+            base.OnGotFocus(e);
+        }
+
+        private void DrawBorder()
+        {
+            Border = PPath.CreateRectangle(X, Y, PageSize.A4.Width, PageSize.A4.Height);
+            Border.Pen = Pens.Black;
+            AddChild(Border);
+        }
+
+        void Model_KeyDown(object sender, KeyEventArgs e)
+        {
+            foreach (KeyValuePair<Keys, ShowInterfaceHandler> keyPair in EscapeKeys)
+            {
+                if (e.KeyCode == keyPair.Key)
+                {
+                    Active = false;
+                    PInputEventArgs eventArgs = new PInputEventArgs(Window.Canvas.Root.DefaultInputManager, e, PInputType.KeyDown);
+                    eventArgs.Path = new PPickPath(Camera, this.Bounds);
+                    eventArgs.Path.PushNode(Camera);
+                    eventArgs.Path.PushNode(this);
+
+                    keyPair.Value.OnKeyDown(this, eventArgs);
+                    //SendKeys.Send("{" + e.KeyCode.ToString() + "}");
+                }
+            }
         }
 
         /// <summary>

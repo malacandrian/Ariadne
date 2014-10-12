@@ -32,7 +32,7 @@ namespace zoom.Interfaces
 
         public override bool DoesAcceptEvent(PInputEventArgs e)
         {
-            if (Interface.Accepts(e) && base.DoesAcceptEvent(e))
+            if ((Interface.Accepts(e) || (e.IsKeyEvent && e.KeyCode == Keys.Escape)) && base.DoesAcceptEvent(e))
             {
                 e.Handled = true;
                 return true;
@@ -42,21 +42,24 @@ namespace zoom.Interfaces
 
         public override void OnKeyDown(object sender, PInputEventArgs e)
         {
-            if (!IsPressed)
+            base.OnKeyDown(sender, e);
+            if (IsPressed == false && Interface.Accepts(e))
             {
-                base.OnKeyDown(sender, e);
-
-
-                Interface.Press(sender, e);
-
                 Interface.Entry.Text = "";
                 Camera.AddChild(Interface);
-                keyFocus = e.InputManager.KeyboardFocus;
+
+                if (Page.LastPage != null) { keyFocus = Page.LastPage.ToPickPath(); }
+                else { keyFocus = Camera.ToPickPath(); }
+
                 e.InputManager.KeyboardFocus = Interface.Entry.ToPickPath(e.Camera, Interface.Entry.Bounds);
+                IsPressed = true;
 
-
+                Interface.Activate(sender, e);
             }
-            IsPressed = true;
+            else if (e.KeyCode == Keys.Escape) { RemoveInterface(e); }
+
+            if (Interface.Accepts(e)) { Interface.RegisterActivateButtonPress(sender, e); }
+
         }
 
         public override void OnKeyUp(object sender, PInputEventArgs e)
@@ -68,7 +71,14 @@ namespace zoom.Interfaces
                 //Execute the code
                 Interface.Release(sender, e);
 
-                //Remove Command Interface
+                RemoveInterface(e);
+            }
+        }
+
+        protected void RemoveInterface(PInputEventArgs e)
+        {
+            if (Camera.IndexOfChild(Interface) >= 0)
+            {
                 Camera.RemoveChild(Interface);
                 e.InputManager.KeyboardFocus = keyFocus;
                 IsPressed = false;

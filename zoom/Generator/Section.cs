@@ -13,14 +13,10 @@ namespace zoom.Generator
 {
     public class Section
     {
-        //public int SentanceLength { get; protected set; }
-        //public int SentanceVariance { get; protected set; }
         public int ParagraphLength { get; protected set; }
         public int ParagraphVariance { get; protected set; }
 
-        //public Font Style { get; protected set; }
         public SectionSelector NextSection { get; protected set; }
-        //public Color Color {get; protected set;}
 
         public Style Style { get; protected set; }
 
@@ -54,15 +50,10 @@ namespace zoom.Generator
 
         public Section generate(Model target)
         {
-            //Add the text to the page
-            string sectionText = generateText();
-            target.AppendText(sectionText);
-
-            //Style the text appropriately
-            int sectionStart = target.TextLength - sectionText.Length;
-            if (sectionStart < 0) { sectionStart = 0; }
-            target.Select(sectionStart, sectionText.Length);
+            //Add the styled text
+            target.Select(target.TextLength, 0);
             Style.ApplyStyle(target);
+            target.SelectedText = generateText();
 
             //Decide which type of paragraph goes next
             return getNext();

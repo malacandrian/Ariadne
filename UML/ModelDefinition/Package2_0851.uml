@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="1690c962-d318-4ce7-b4a8-2221a61cc82b"
+  name="HCIL"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="ce93d13a-9f04-4f58-a866-f04c4718ed64"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DUMD.HCIL"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1ad658df-9141-4ecc-894d-a8788d413e0f"
+        LastKnownName="Piccolo"
+        LastKnownLocation="Package3_0851.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="36c4fc68-82c4-4b85-a14e-09a7e0933d55"
+        LastKnownName="PiccoloX"
+        LastKnownLocation="Package6_0851.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

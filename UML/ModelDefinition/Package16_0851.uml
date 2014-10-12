@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="f8ba65fa-91e0-4a40-80a0-f30d55afc3ea"
+  name="Nodes"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="786aec6e-8bc5-487c-b614-70de48afc38b"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DUMD.HCIL.PiccoloX.Nodes"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="98af6f95-4710-4531-b5d1-5265ad90b3ab"
+        name="PStyledText"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="3dbdc53d-75ac-4857-925f-5d513defd2aa"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Flibraries%2FPiccolo.NET%2FSource%2FPiccoloX%2Fbin%2FDebug%2FUMD.HCIL.PiccoloX.dll Namespace%3DUMD.HCIL.PiccoloX.Nodes Type%3DPStyledText"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="11e9d661-98f7-41db-b171-69dc9c9a833a"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7722d19e-dd88-473d-b136-2d2091f653f1">
+                <propertyInstance
+                  Id="5e690dcf-1304-4b71-925a-4c09abe25c7a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="32d93188-6cea-4bb9-bc98-321b7ad623d2">
+                <propertyInstance
+                  Id="6f4d5f12-174c-44f8-b63a-9086d882a4fa"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="88ddef9f-5e36-4028-b89c-17201b36473a">
+                <propertyInstance
+                  Id="82da484c-c54c-41ac-a811-762172920352"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="10808866-922c-4a29-b8e4-ad51546411c2">
+                <propertyInstance
+                  Id="28c5db30-83e5-4c7e-839f-0dd06e045570"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b6e2d3e8-ce2d-4b72-a383-dfc1a17802f7">
+                <propertyInstance
+                  Id="4d30e7fd-9488-4185-843d-95d3a6541134"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="1e6da2bf-d15d-4e28-9229-082ea14c7374"
+            isSubstitutable="false">
+            <classMoniker
+              Id="068c37c9-76d6-408d-b467-b9215b72dff0"
+              LastKnownName="PNode"
+              LastKnownLocation="Package3_0851.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

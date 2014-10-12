@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="1ad658df-9141-4ecc-894d-a8788d413e0f"
+  name="Piccolo"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="42a4ea1c-d1d6-4f56-9544-55e64fb60b65"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DUMD.HCIL.Piccolo"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="8b253774-128e-4039-be46-41258df8b053">
+      <profileInstance
+        Id="a83bf622-7cda-49bb-9318-68c17be4821f"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="8a86d956-45b5-476e-8c81-d5882ab9a1a4"
+        name="PCamera"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="68a16532-5adc-47bb-800c-2596e16ad395"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Flibraries%2FPiccolo.NET%2FSource%2FPiccoloX%2Fbin%2FDebug%2FUMD.HCIL.Piccolo.dll Namespace%3DUMD.HCIL.Piccolo Type%3DPCamera"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="134025e8-beb2-4ca0-b5cb-896ed4420e5b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="98ba48ad-a998-44f2-87cf-a52a322c76e0">
+                <propertyInstance
+                  Id="fde9ee28-0356-4074-a953-7586641c7860"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5df85527-6dcd-4fee-9d9c-e41ca7a84d46">
+                <propertyInstance
+                  Id="f44313b6-7627-4eec-893e-17fbc008c5ae"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4b11fd8f-e211-4a19-b381-8537ab014860">
+                <propertyInstance
+                  Id="dd1b844f-eb95-4298-8ced-66ad53690aad"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f62a62c6-7db7-4e71-81b7-d7b25bf49194">
+                <propertyInstance
+                  Id="7fd37058-1753-4947-9bf4-5c6ea467e8b4"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8f2684b7-0f20-47b7-a024-9305b77b9509">
+                <propertyInstance
+                  Id="ff808834-531d-41cf-a3b7-be3e55006483"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="ad167839-36d5-42dd-82a5-d025ca6a0f5b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="068c37c9-76d6-408d-b467-b9215b72dff0"
+              LastKnownName="PNode"
+              LastKnownLocation="Package3_0851.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="028178c6-371a-426c-aa21-22c249f81500"
+        LastKnownName="Activities"
+        LastKnownLocation="Package4_0851.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b821c15a-e9ad-49b6-9ea1-8b5c35b6c151"
+        LastKnownName="Event"
+        LastKnownLocation="Package5_0851.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="068c37c9-76d6-408d-b467-b9215b72dff0"
+        name="PNode"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6563a822-7282-45d2-a28d-3fe13d0163af"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Flibraries%2FPiccolo.NET%2FSource%2FPiccoloX%2Fbin%2FDebug%2FUMD.HCIL.Piccolo.dll Namespace%3DUMD.HCIL.Piccolo Type%3DPNode"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="21c85d48-bbdf-4918-9a71-4e3e1311fcf8"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="00348de2-35cd-4480-ab7c-b2078460dd3e">
+                <propertyInstance
+                  Id="bf2cdf75-95c7-40a4-97bb-f0c6399dae0b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f14ed19b-69bb-4739-83bf-e0ca1724bae7">
+                <propertyInstance
+                  Id="f3d1ae2b-ded3-4d7b-b95a-b4d8a21e0f09"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e30e9e68-5c23-4a07-b960-58a4e0d8191c">
+                <propertyInstance
+                  Id="80f09bde-1910-404c-9817-b1bb18809cd1"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="074aee98-c56e-4ada-ba00-8a8d3ede22c6">
+                <propertyInstance
+                  Id="06b8735e-0824-419d-9f07-1e2b35e5505b"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1a5d615e-d92a-4f58-971c-cab38f6320b8">
+                <propertyInstance
+                  Id="a861990c-074d-4721-b996-24fc66f8407a"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b7d3658a-d41a-4fd2-971a-b4ec505ae5db"
+        LastKnownName="Nodes"
+        LastKnownLocation="Package13_0851.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="661467ad-58db-4564-b5d8-00787d685784"
+        name="PCanvas"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="f660f058-8a72-4570-ab71-f221c58f8faf"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Flibraries%2FPiccolo.NET%2FSource%2FPiccoloX%2Fbin%2FDebug%2FUMD.HCIL.Piccolo.dll Namespace%3DUMD.HCIL.Piccolo Type%3DPCanvas"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="2eaaa6ef-b3a4-4350-a6d9-ab3a286d258e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="675660bc-f1fc-4b9d-b058-6cb3e0b721f8">
+                <propertyInstance
+                  Id="840f70a2-b239-4a7d-8c09-23f1c23f0657"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c0f16fdc-6c2b-454e-b660-96608a5037ff">
+                <propertyInstance
+                  Id="5e0c7433-5732-4201-be7e-d754cba10cf7"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a899ea83-d82f-4d31-b6a0-52a8992af676">
+                <propertyInstance
+                  Id="b4053eca-ba93-4f7d-9bc2-bf5b30269c34"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5c63c02f-631e-47ff-ad93-ca4d6cdc3422">
+                <propertyInstance
+                  Id="120697f1-081f-4fdd-be47-a2254503fae4"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f5357760-2ab8-4425-90bc-29a5c2bae381">
+                <propertyInstance
+                  Id="c861da7e-3ed0-4b97-ac53-1f40603a2564"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="61bd821d-a2b5-4b7c-81bc-32d9839f7b97"
+        LastKnownName="Util"
+        LastKnownLocation="Package_0853.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

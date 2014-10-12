@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="028178c6-371a-426c-aa21-22c249f81500"
+  name="Activities"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="8f715c59-0741-453a-9001-536afaa99376"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DUMD.HCIL.Piccolo.Activities"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="82f014f5-3e53-4554-a113-2768ba26719c"
+        name="PActivity"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6f1ebba8-8f28-40b7-bacb-011a2621fb13"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Flibraries%2FPiccolo.NET%2FSource%2FPiccoloX%2Fbin%2FDebug%2FUMD.HCIL.Piccolo.dll Namespace%3DUMD.HCIL.Piccolo.Activities Type%3DPActivity"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ce3f3317-614d-499d-9e45-f41877500b53"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c7cb8132-689a-4d50-a875-be2b63b2d3a8">
+                <propertyInstance
+                  Id="a243ebf9-0ec6-4f6d-8f85-6e221c0d4075"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bc33ad29-5fea-449f-97d4-5cfa4a6bdd76">
+                <propertyInstance
+                  Id="ad18b37a-e5fe-4be4-b25e-0a56c8ea10ab"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b130d566-1c7b-41e8-80f8-2e0aa5fd5fe2">
+                <propertyInstance
+                  Id="19f68883-959f-4d33-ab60-aafc33e79b24"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f3913ede-001e-4410-86e0-7d7c23121c3a">
+                <propertyInstance
+                  Id="2b2313f8-eb3c-4c5a-90f0-b191f9554dc2"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f86bec5c-13c3-4a63-9c52-7359db10f99a">
+                <propertyInstance
+                  Id="dc8cc253-c989-4d81-99ff-0a2b700ecda0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

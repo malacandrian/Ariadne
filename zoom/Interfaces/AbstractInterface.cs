@@ -18,26 +18,35 @@ namespace zoom.Interfaces
         public PText Entry { get; protected set; }
         public PImage Icon { get; protected set; }
 
+        public static readonly int MinWidth = 320;
+        public static readonly int TextHeight = 60;
+        public static readonly int IconSize = TextHeight;
+        public static readonly int Padding = 20;
+
+        protected TextEntryHandler Handler;
+
         public AbstractInterface(PImage icon)
         {
-            Background = PPath.CreateRectangle(0, 0, 400, 100);
+            Background = PPath.CreateRectangle(0, 0, MinWidth + IconSize + (Padding * 2), 100);
             Entry = new PText();
             Entry.ConstrainHeightToTextHeight = false;
-            Entry.ConstrainWidthToTextWidth = false;
-            Entry.Bounds = new RectangleF(20, 20, 360, 60);
+            //Entry.ConstrainWidthToTextWidth = false;
+            Entry.Bounds = new RectangleF(Padding, Padding, 0, TextHeight);
             Entry.Font = new Font("Century Gothic", 32);
             AddChild(Background);
             AddChild(Entry);
 
             Icon = icon;
-            Icon.Bounds = new RectangleF(320, 20, 60, 60);
+            Icon.Bounds = new RectangleF(MinWidth + Padding, Padding, IconSize, IconSize);
             AddChild(Icon);
 
-            Entry.AddInputEventListener(new TextEntryHandler(this));
+            Handler = new TextEntryHandler(this);
+            Entry.AddInputEventListener(Handler);
         }
 
         public abstract void Release(object sender, PInputEventArgs e);
-        public abstract void Press(object sender, PInputEventArgs e);
+        public abstract void Activate(object sender, PInputEventArgs e);
+        public abstract void RegisterActivateButtonPress(object sender, PInputEventArgs e);
         public abstract bool Accepts(PInputEventArgs e);
 
         protected static bool MatchKeys(Keys expected, Keys actual)
@@ -48,11 +57,15 @@ namespace zoom.Interfaces
 
     public class TextEntryHandler : PBasicInputEventHandler
     {
+        public delegate void WidthUpdateHandler();
+        public WidthUpdateHandler UpdateWidth;
+
         public AbstractInterface Owner { get; protected set; }
 
         public TextEntryHandler(AbstractInterface o)
         {
             Owner = o;
+            UpdateWidth += OnUpdateWidth;
         }
 
         public override bool DoesAcceptEvent(PInputEventArgs e)
@@ -63,14 +76,48 @@ namespace zoom.Interfaces
         public override void OnKeyDown(object sender, PInputEventArgs e)
         {
             base.OnKeyDown(sender, e);
-            byte c = (byte)e.KeyCode;
-            if (c >= 65 && c <= 90)
+            char c = (char)e.KeyCode;
+
+            //Keydown seems to assume they're all caps
+            //All lower case looks better than all caps
+            //So we'll force them to lower case
+            if (c >= 'A' && c <= 'Z')
             {
-                c += 32;
+                c = (char)(c + 32);
             }
-            Owner.Entry.Text += (char)c;
+
+            //If it's a letter or a number, add it to the text
+            if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
+            {
+                Owner.Entry.Text += c;
+            }
+            else
+            {
+                //Deal with control characters
+                switch (c)
+                {
+                    case (char)Keys.Back: //Backspace
+                        Owner.Entry.Text = Owner.Entry.Text.Substring(0, Owner.Entry.Text.Length - 1);
+                        break;
+
+                    case ' ': //Space
+                        Owner.Entry.Text += ' ';
+                        break;
+                }
+            }
+
+            UpdateWidth();
+        }
+
+        protected void OnUpdateWidth()
+        {
+            float basicWidth = AbstractInterface.MinWidth;
+            if (Owner.Entry.Width > AbstractInterface.MinWidth) { basicWidth = Owner.Entry.Width; }
+
+            Owner.Background.Width = basicWidth + (AbstractInterface.Padding * 2) + AbstractInterface.IconSize;
+            Owner.Icon.X = basicWidth + AbstractInterface.Padding;
         }
     }
 
-   
+
 }
