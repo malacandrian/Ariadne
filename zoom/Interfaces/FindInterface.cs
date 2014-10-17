@@ -16,7 +16,7 @@ namespace zoom.Interfaces
 {
     public class FindInterface : AbstractInterface
     {
-        public enum Direction { Forward, Backward, Highlight };
+        public enum Direction { Forward, Backward, Highlight, None };
 
         public Window Window { get; protected set; }
 
@@ -38,6 +38,7 @@ namespace zoom.Interfaces
             : base(new PImage(Properties.Resources.MagnifyingGlass))
         {
             Window = window;
+            SearchDirection = Direction.None;
             DirectionText = new PText();
 
             DirectionText.ConstrainHeightToTextHeight = false;
@@ -82,7 +83,7 @@ namespace zoom.Interfaces
                 //So the timer tells the UI thread to do what it needs to do
                 Window.BeginInvoke((Action)delegate() { WaitForChord_Elapsed(s, e2); });
             };
-               
+
             WaitForChord.Start();
         }
 
@@ -193,11 +194,12 @@ namespace zoom.Interfaces
 
         public override void Release(object sender, UMD.HCIL.Piccolo.Event.PInputEventArgs e)
         {
+            if (SearchDirection == Direction.Highlight) { Highlight(); }
+            else if (SearchDirection == Direction.Forward || SearchDirection == Direction.Backward) { Search(); }
+
             //Reset the direction detection flags
             ForwardPressed = BackPressed = false;
-
-            if (SearchDirection == Direction.Highlight) { Highlight(); }
-            else { Search(); }
+            SearchDirection = Direction.None;
         }
 
         protected void Highlight()
@@ -223,17 +225,16 @@ namespace zoom.Interfaces
             //Clear the direction text
             DirectionText.Text = "";
 
-            bool reverse = SearchDirection == Direction.Backward;
+            bool reverse = (SearchDirection == Direction.Backward);
 
 
             //Perform the search
             Document[] documents = OrderDocuments(Window.Documents, StartLocation.DocumentIndex, reverse);
-            Location FoundLocation = SearchDocuments(documents, StartLocation, phrase, reverse);
-            //bool phraseFound = SearchDocuments(documents, Entry.Text, startDoc, startPage, StartLoc, reverse);
+            Location foundLocation = SearchDocuments(documents, StartLocation, phrase, reverse);
 
-            if (FoundLocation != null)
+            if (foundLocation != null)
             {
-                Location wordEnd = FindNearestWordEnd(FoundLocation, reverse);
+                Location wordEnd = FindNearestWordEnd(foundLocation, reverse);
                 NavigateToFoundPage(wordEnd);
                 ActivateFoundPage(wordEnd);
 
@@ -242,11 +243,24 @@ namespace zoom.Interfaces
             }
         }
 
-        protected static Location FindNearestWordEnd(Location location, bool reverse) { return SearchPage(location, " ", !reverse); }
+        protected static Location FindNearestWordEnd(Location location, bool reverse)
+        {
+            Location output = SearchPage(location, " ", reverse);
+            if (output == null)
+            {
+                int newCharIndex;
+                if (reverse) { newCharIndex = 0; }
+                else { newCharIndex = location.Page.Text.Length; }
+
+                output = new Location(location.Window, location.Document, location.Page, newCharIndex);
+            }
+            return output;
+        }
 
         protected void ActivateFoundPage(Location foundLocation)
         {
-            Window.Canvas.Root.DefaultInputManager.KeyboardFocus = foundLocation.Page.ToPickPath();
+            //foundLocation.Page.Active = true;
+            Window.FindHandler.KeyFocus = foundLocation.Page.ToPickPath();
             foundLocation.Page.Model.Select((int)foundLocation.CharIndex, 0);
         }
 
@@ -269,19 +283,21 @@ namespace zoom.Interfaces
         {
             int startLoc = GetCharIndexFromLocation(location, reverse);
 
-            int phraseLocation;
+            int phraseLocation, minFind;
             if (reverse == false)
             {
+                minFind = startLoc;
                 string textPart = location.Page.Text.Substring(startLoc).ToLower();
                 phraseLocation = startLoc + textPart.IndexOf(phrase);
             }
             else
             {
+                minFind = 0;
                 string textPart = location.Page.Text.Substring(0, startLoc).ToLower();
                 phraseLocation = textPart.LastIndexOf(phrase);
             }
 
-            if (phraseLocation > 0) { return new Location(location.Window, location.Document, location.Page, phraseLocation); }
+            if (phraseLocation >= minFind) { return new Location(location.Window, location.Document, location.Page, phraseLocation); }
             else { return null; }
         }
 

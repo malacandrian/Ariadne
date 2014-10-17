@@ -14,7 +14,6 @@ namespace zoom
         [STAThread]
         static void Main()
         {
-            //Model.CheckForIllegalCrossThreadCalls = false;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Window());

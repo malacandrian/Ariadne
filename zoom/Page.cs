@@ -104,7 +104,6 @@ namespace zoom
                     eventArgs.Path.PushNode(this);
 
                     keyPair.Value.OnKeyDown(this, eventArgs);
-                    //SendKeys.Send("{" + e.KeyCode.ToString() + "}");
                 }
             }
         }

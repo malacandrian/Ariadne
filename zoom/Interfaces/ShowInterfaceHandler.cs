@@ -16,7 +16,7 @@ namespace zoom.Interfaces
         public PCamera Camera { get; protected set; }
         public AbstractInterface Interface { get; protected set; }
         public bool IsPressed { get; protected set; }
-        private PPickPath keyFocus;
+        public PPickPath KeyFocus;
         public Keys ActivateKey { get; protected set; }
 
         public ShowInterfaceHandler(PCamera c, Keys activateKey, AbstractInterface showInterface)
@@ -48,8 +48,8 @@ namespace zoom.Interfaces
                 Interface.Entry.Text = "";
                 Camera.AddChild(Interface);
 
-                if (Page.LastPage != null) { keyFocus = Page.LastPage.ToPickPath(); }
-                else { keyFocus = Camera.ToPickPath(); }
+                if (Page.LastPage != null) { KeyFocus = Page.LastPage.ToPickPath(); }
+                else { KeyFocus = Camera.ToPickPath(); }
 
                 e.InputManager.KeyboardFocus = Interface.Entry.ToPickPath(e.Camera, Interface.Entry.Bounds);
                 IsPressed = true;
@@ -80,7 +80,7 @@ namespace zoom.Interfaces
             if (Camera.IndexOfChild(Interface) >= 0)
             {
                 Camera.RemoveChild(Interface);
-                e.InputManager.KeyboardFocus = keyFocus;
+                e.InputManager.KeyboardFocus = KeyFocus;
                 IsPressed = false;
             }
         }

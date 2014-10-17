@@ -61,7 +61,6 @@ namespace zoom
             Canvas.AddInputEventListener(DocHandler);
 
             GenerateDocs();
-
         }
 
         private void GenerateDocs()
