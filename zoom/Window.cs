@@ -75,7 +75,7 @@ namespace zoom
 
             //Set up event listeners
             Canvas.ZoomEventHandler.AcceptsEvent = delegate(PInputEventArgs e) { return e.PickedNode is PCamera && e.IsMouseEvent && AcceptsMouseButton(MouseButtons.Right, e.Button); };
-            Canvas.PanEventHandler.AcceptsEvent = delegate(PInputEventArgs e) { return e.PickedNode is PCamera && e.IsMouseEvent && AcceptsMouseButton(MouseButtons.Left | MouseButtons.Right, e.Button); };
+            Canvas.PanEventHandler.AcceptsEvent = delegate(PInputEventArgs e) { return e.PickedNode is PCamera && e.IsMouseEvent && AcceptsMouseButton(MouseButtons.Left, e.Button); };
 
             CommandHandler = new ShowInterfaceHandler(Canvas.Camera, new CommandInterface(Canvas.Camera));
             Canvas.Camera.AddInputEventListener(CommandHandler);

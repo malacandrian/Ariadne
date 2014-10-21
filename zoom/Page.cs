@@ -55,14 +55,7 @@ namespace zoom
         /// <summary>
         /// The list of keys that cause an interface to launch, and the handler for launching that interface
         /// </summary>
-        public static readonly ReadOnlyDictionary<Keys, ShowInterfaceHandler> EscapeKeys
-            = new ReadOnlyDictionary<Keys, ShowInterfaceHandler>(
-                new Dictionary<Keys, ShowInterfaceHandler>()
-                {
-                    {Keys.F1, Window.CommandHandler},
-                    {Keys.F2, Window.FindHandler},
-                    {Keys.F3, Window.FindHandler}
-                });
+        public readonly ReadOnlyDictionary<Keys, ShowInterfaceHandler> EscapeKeys;
 
         /// <summary>
         /// The Window this page is attached to
@@ -84,6 +77,14 @@ namespace zoom
             Document = document;
             Prev = pr;
             Next = nx;
+
+            EscapeKeys = new ReadOnlyDictionary<Keys, ShowInterfaceHandler>(
+                new Dictionary<Keys, ShowInterfaceHandler>()
+                {
+                    {Keys.F1, Window.CommandHandler},
+                    {Keys.F2, Window.FindHandler},
+                    {Keys.F3, Window.FindHandler}
+                });
 
             //Set the size of the page
             ConstrainHeightToTextHeight = false;
