@@ -11,43 +11,96 @@ using UMD.HCIL.PiccoloX.Nodes;
 
 namespace zoom.Generator
 {
+    /// <summary>
+    /// A paragraph of a dynamically generated document
+    /// </summary>
+    /// <remarks>
+    /// Each section acts as a state in the FSM that generates random documents. 
+    /// The next state is determined non-deterministically by each Section'sections SectionSelector
+    /// </remarks>
     public class Section
     {
+        /// <summary>
+        /// The mean length that the generated paragraph should be
+        /// </summary>
         public int ParagraphLength { get; protected set; }
+
+        /// <summary>
+        /// The standard deviation in the length of the generated paragraph
+        /// </summary>
         public int ParagraphVariance { get; protected set; }
 
-        public SectionSelector NextSection { get; protected set; }
+        /// <summary>
+        /// A SectionSelector to randomly decide which state should follow this one
+        /// </summary>
+        public SectionSelector NextSection;
 
+        /// <summary>
+        /// The style the generated paragraph should be rendered in
+        /// </summary>
         public Style Style { get; protected set; }
 
-        protected static Random Rand = new Random();
+        /// <summary>
+        /// A random number generator for varying paragraph length
+        /// </summary>
+        protected static Random _Random = new Random();
 
-        public Section(Font font, SectionSelector nextSection, int paraLength) : this(font, Color.FromArgb(0, 0, 0), nextSection, paraLength) { }
+        /// <summary>
+        /// Create a new Section with specified Font
+        /// </summary>
+        /// <param Name="font">The font the generated paragraph should be rendered in</param>
+        /// <param Name="paragraphLength">The mean length of the paragraph</param>
+        /// <param Name="paragraphVariance">The standard deviation of paragraph length</param>
+        public Section(Font font, int paragraphLength, int paragraphVariance) : this(font, Color.FromArgb(0, 0, 0), paragraphLength, paragraphVariance) { }
 
-        public Section(Font font, Color color, SectionSelector nextSection, int paraLength) : this(new Style(font, color), nextSection, paraLength) { }
+        /// <summary>
+        /// Create a new Section with specified Font and Color
+        /// </summary>
+        /// <param Name="font">The font the generated paragraph should be rendered in</param>
+        /// <param Name="color">The color the generated paragraph should be rendered in</param>
+        /// <param Name="paragraphLength">The mean length of the paragraph</param>
+        /// <param Name="paragraphVariance">The standard deviation of paragraph length</param>
+        public Section(Font font, Color color, int paragraphLength, int paragraphVariance) : this(new Style(font, color), paragraphLength, paragraphVariance) { }
 
-        public Section(Style style, SectionSelector nextSection, int paraLength)
+        /// <summary>
+        /// Create a new Section with specified Style
+        /// </summary>
+        /// <param Name="style">The Style the generated paragraph should be rendered in</param>
+        /// <param Name="paragraphLength">The mean length of the paragraph</param>
+        /// <param Name="paragraphVariance">The standard deviation of paragraph length</param>
+        public Section(Style style, int paragraphLength, int paragraphVariance)
         {
             Style = style;
-            NextSection = nextSection;
-            ParagraphLength = paraLength;
+            NextSection = new SectionSelector();
+            ParagraphLength = paragraphLength;
+            ParagraphVariance = paragraphVariance;
         }
 
-        public Section getNext()
-        {
-            return NextSection.Select();
-        }
+        /// <summary>
+        /// Decide which symbol should follow this one
+        /// </summary>
+        /// <returns></returns>
+        public Section getNext() { return NextSection.Select(); }
 
-        public Section generate(Document target)
-        {
-            return generate(target.Pages[target.Pages.Length - 1]);
-        }
+        /// <summary>
+        /// Generate text and insert it in to the specified Document
+        /// </summary>
+        /// <param Name="target">The Document to insert the text into</param>
+        /// <returns>The symbol that follows this one</returns>
+        public Section generate(Document target) { return generate(target.Pages[target.Pages.Length - 1]); }
 
-        public Section generate(Page target)
-        {
-            return generate(target.Model);
-        }
+        /// <summary>
+        /// Generate text and insert it in to the specified Page
+        /// </summary>
+        /// <param Name="target">The Page to insert the text into</param>
+        /// <returns>The symbol that follows this one</returns>
+        public Section generate(Page target) { return generate(target.Model); }
 
+        /// <summary>
+        /// Generate text and insert it in to the specified Model
+        /// </summary>
+        /// <param Name="target">The Model to insert the text into</param>
+        /// <returns>The symbol that follows this one</returns>
         public Section generate(Model target)
         {
             //Add the styled text
@@ -59,9 +112,13 @@ namespace zoom.Generator
             return getNext();
         }
 
+        /// <summary>
+        /// Generate a random paragraph of the appropriate length
+        /// </summary>
+        /// <returns>The text of the random paragraph</returns>
         public string generateText()
         {
-            int pLength = (int)Math.Ceiling(Normal.Sample((double)ParagraphLength, (double)ParagraphVariance));
+            int pLength = (int)Math.Max(1,Math.Ceiling(Normal.Sample((double)ParagraphLength, (double)ParagraphVariance)));
             return String.Join(" ", Lorem.Sentences(pLength)) + "\n";
 
         }

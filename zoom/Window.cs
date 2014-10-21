@@ -15,73 +15,116 @@ using UMD.HCIL.PiccoloX.Nodes;
 
 namespace zoom
 {
+    /// <summary>
+    /// Window is the main Windows form form that everything is displayed within
+    /// </summary>
     public class Window : PForm
     {
+        /// <summary>
+        /// The current selection
+        /// </summary>
         public Selection Selection { get; protected set; }
 
-        public static ShowInterfaceHandler CommandHandler { get; protected set; }
-        public static ShowInterfaceHandler FindHandler { get; protected set; }
+        /// <summary>
+        /// Shows, hides, and executes the command interface on request
+        /// </summary>
+        public ShowInterfaceHandler CommandHandler { get; protected set; }
+
+        /// <summary>
+        /// Shows, hides, and executes the find interface on request
+        /// </summary>
+        public ShowInterfaceHandler FindHandler { get; protected set; }
+
+        /// <summary>
+        /// Automatically produces documents when the user enters text on the background
+        /// </summary>
         public DocCreateHandler DocHandler { get; protected set; }
 
+        /// <summary>
+        /// The list of documents attached to the Window
+        /// </summary>
         public Document[] Documents
         {
             get
             {
+                //Filter all children, adding any documents to the list
                 List<Document> output = new List<Document>();
                 PNodeList children = Canvas.Layer.ChildrenReference;
                 foreach (PNode node in children)
                 {
-                    if (node is Document)
-                    {
-                        output.Add((Document)node);
-                    }
+                    if (node is Document) { output.Add((Document)node); }
                 }
 
+                //Sort the documents first by their X coordinate, then by their Y
                 return output.OrderBy(a => a.X).ThenBy(a => a.Y).ToArray();
             }
         }
 
+        /// <summary>
+        /// Set the form up first time it is run
+        /// </summary>
         public override void Initialize()
         {
             base.Initialize();
 
+            //The point is to emulate an OS, so make the window full screen
             WindowState = FormWindowState.Maximized;
 
+            //Shift keyboard focus to the background
             Canvas.Root.DefaultInputManager.KeyboardFocus = Canvas.Camera.ToPickPath();
-            Canvas.ZoomEventHandler = new NewZoomEventHandler();
-            Canvas.PanEventHandler = new NewPanEventHandler();
 
-            CommandHandler = new ShowInterfaceHandler(Canvas.Camera, Keys.F1, new CommandInterface(Canvas.Camera));
+            //Set up event listeners
+            Canvas.ZoomEventHandler.AcceptsEvent = delegate(PInputEventArgs e) { return e.PickedNode is PCamera && e.IsMouseEvent && AcceptsMouseButton(MouseButtons.Right, e.Button); };
+            Canvas.PanEventHandler.AcceptsEvent = delegate(PInputEventArgs e) { return e.PickedNode is PCamera && e.IsMouseEvent && AcceptsMouseButton(MouseButtons.Left | MouseButtons.Right, e.Button); };
+
+            CommandHandler = new ShowInterfaceHandler(Canvas.Camera, new CommandInterface(Canvas.Camera));
             Canvas.Camera.AddInputEventListener(CommandHandler);
 
-            FindHandler = new ShowInterfaceHandler(Canvas.Camera, Keys.F2 | Keys.F3, new FindInterface(this));
+            FindHandler = new ShowInterfaceHandler(Canvas.Camera, new FindInterface(this));
             Canvas.Camera.AddInputEventListener(FindHandler);
 
             DocHandler = new DocCreateHandler(Canvas);
             Canvas.AddInputEventListener(DocHandler);
 
+            //Generate sample documents
             GenerateDocs();
         }
 
+        /// <summary>
+        /// Return true if the expected and actual values exactly match
+        /// </summary>
+        /// <param name="expected">The expected value</param>
+        /// <param name="actual">The actual value</param>
+        /// <returns></returns>
+        private static bool AcceptsMouseButton(MouseButtons expected, MouseButtons actual)
+        {
+            return (expected & actual) == expected && (expected ^ actual) == 0;
+        }
+
+        /// <summary>
+        /// Generate a set of documents, and add them to the window
+        /// </summary>
         private void GenerateDocs()
         {
             Document[] docs = SampleDocs(4);
-            foreach (Document doc in docs)
-            {
-                Canvas.Layer.AddChild(doc);
-            }
+            foreach (Document doc in docs) { Canvas.Layer.AddChild(doc); }
         }
 
+        /// <summary>
+        /// Generate a set of documents
+        /// </summary>
+        /// <param name="numDocs">How many documents to create</param>
+        /// <returns>The documents</returns>
         private Document[] SampleDocs(int numDocs)
         {
             //Generate Sections
-            Section title = new Section(new Font("Century Gothic", 22), Color.FromArgb(128, 0, 0), new SectionSelector(), 1);
-            Section h1 = new Section(new Font("Century Gothic", 16), Color.FromArgb(128, 0, 0), new SectionSelector(), 1);
-            Section h2 = new Section(new Font("Century Gothic", 13), Color.FromArgb(128, 0, 0), new SectionSelector(), 1);
-            Section h3 = new Section(new Font("Century Gothic", 11, FontStyle.Bold), Color.FromArgb(128, 0, 0), new SectionSelector(), 1);
-            Section text1 = new Section(new Font("Century Gothic", 11), new SectionSelector(), 4);
-            Section text2 = new Section(new Font("Century Gothic", 11), new SectionSelector(), 4);
-            Section text3 = new Section(new Font("Century Gothic", 11), new SectionSelector(), 4);
+            Section title = new Section(new Font("Century Gothic", 22), Color.FromArgb(128, 0, 0), 1, 0);
+            Section h1 = new Section(new Font("Century Gothic", 16), Color.FromArgb(128, 0, 0), 1, 0);
+            Section h2 = new Section(new Font("Century Gothic", 13), Color.FromArgb(128, 0, 0), 1, 0);
+            Section h3 = new Section(new Font("Century Gothic", 11, FontStyle.Bold), Color.FromArgb(128, 0, 0), 1, 0);
+            Section text1 = new Section(new Font("Century Gothic", 11), 4, 2);
+            Section text2 = new Section(new Font("Century Gothic", 11), 4, 2);
+            Section text3 = new Section(new Font("Century Gothic", 11), 4, 2);
 
             //Fill out selectors
 
@@ -124,12 +167,20 @@ namespace zoom
             text3.NextSection.AddSection(h2, 1);
             text3.NextSection.AddSection(h3, 1);
 
+            //Generate the documents
             DocGenerator docGen = new DocGenerator(title, this);
             return docGen.GenerateDocSet(numDocs);
         }
 
+        /// <summary>
+        /// Ensure there is only one selection active on the entire window
+        /// </summary>
+        /// <remarks>Hooked in to each PStyledText's ConfirmSelection listener</remarks>
+        /// <param name="oldSelection">The selection that was removed</param>
+        /// <param name="newSelection">The selection that replaced it</param>
         public void ConfirmSelection(Selection oldSelection, Selection newSelection)
         {
+            //If there is currently a selection, remove it
             if (Selection != null)
             {
                 Selection.Active = false;
@@ -138,31 +189,9 @@ namespace zoom
                     Selection.RemoveFromParent();
                 }
             }
+
+            //Add the new selection
             Selection = newSelection;
-        }
-    }
-
-    public class NewZoomEventHandler : PZoomEventHandler
-    {
-        protected override bool PZoomEventHandlerAcceptsEvent(PInputEventArgs e)
-        {
-            if (base.PZoomEventHandlerAcceptsEvent(e))
-            {
-                return (e.PickedNode is PCamera);  
-            }
-            return false;
-        }
-    }
-
-    public class NewPanEventHandler : PPanEventHandler
-    {
-        protected override bool PPanEventHandlerAcceptsEvent(PInputEventArgs e)
-        {
-            if ( base.PPanEventHandlerAcceptsEvent(e))
-            {
-                return (e.PickedNode is PCamera);
-            }
-            return false;
         }
     }
 }

@@ -70,22 +70,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\AbstractStyleCommand.cs" />
-    <Compile Include="Commands\CalculateCommand.cs" />
-    <Compile Include="Commands\TranslateCommand.cs" />
+    <Compile Include="Command\AbstractStyleCommand.cs" />
+    <Compile Include="Command\CalculateCommand.cs" />
+    <Compile Include="Command\TranslateCommand.cs" />
     <Compile Include="DocCreateHandler.cs" />
+    <Compile Include="DocDragHandler.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Interfaces\CommandInterface.cs" />
-    <Compile Include="Commands\ToggleStyleCommand.cs" />
-    <Compile Include="Commands\ColorCommand.cs" />
-    <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\SizeCommand.cs" />
-    <Compile Include="Commands\StyleCommand.cs" />
+    <Compile Include="Command\ToggleStyleCommand.cs" />
+    <Compile Include="Command\ColorCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\SizeCommand.cs" />
+    <Compile Include="Command\StyleCommand.cs" />
     <Compile Include="Generator\DocGenerator.cs" />
     <Compile Include="Generator\Section.cs" />
     <Compile Include="Generator\SectionSelector.cs" />
     <Compile Include="Interfaces\AbstractInterface.cs" />
     <Compile Include="Interfaces\FindInterface.cs" />
+    <Compile Include="Interfaces\InterfaceTextEntryHandler.cs" />
+    <Compile Include="Interfaces\Location.cs" />
     <Compile Include="Interfaces\ShowInterfaceHandler.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="PageSize.cs" />

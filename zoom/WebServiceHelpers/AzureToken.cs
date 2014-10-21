@@ -11,62 +11,103 @@ using System.Runtime.Serialization.Json;
 
 namespace zoom.WebServiceHelpers
 {
+    /// <summary>
+    /// AzureToken handles everything to do with authorising requests on the Azure data market
+    /// </summary>
     public class AzureToken
     {
+        /// <summary>
+        /// The ID of the program making the request
+        /// </summary>
         public string ClientID { get; protected set; }
+
+        /// <summary>
+        /// The secret of the program making the request
+        /// </summary>
         public string ClientSecret { get; protected set; }
+
+        /// <summary>
+        /// The scope of what the token is authorising for
+        /// </summary>
         public string Scope { get; protected set; }
 
+        /// <summary>
+        /// The ID, encoded for sending over HTTP
+        /// </summary>
         public string EncodedId { get { return HttpUtility.UrlEncode(ClientID); } }
+
+        /// <summary>
+        /// The secret, encoded for sending over HTTP
+        /// </summary>
         public string EncodedSecret { get { return HttpUtility.UrlEncode(ClientSecret); } }
+
+        /// <summary>
+        /// The scope, encoded for sending over HTTP
+        /// </summary>
         public string EncodedScope { get { return HttpUtility.UrlEncode(Scope); } }
 
-        protected AdmAccessToken token;
-        protected static readonly string DataMarketURI = @"https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
+        /// <summary>
+        /// The Token that an authourisation request returns. This class is built to abstract on this token
+        /// </summary>
+        protected AdmAccessToken _AccessToken;
 
+        /// <summary>
+        /// The URI to request authorisation from
+        /// </summary>
+        protected static readonly string _DataMarketURI = @"https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
+
+        /// <summary>
+        /// Gets the access token if it is currently active
+        /// </summary>
         public string AccessToken
         {
             get
             {
-                if (Active == true) { return token.access_token; }
+                if (Active == true) { return _AccessToken.access_token; }
                 else { return null; }
             }
         }
 
+        /// <summary>
+        /// Gets the type of token if it is currently active
+        /// </summary>
         public string TokenType
         {
             get
             {
-                if (Active == true) { return token.access_token; }
+                if (Active == true) { return _AccessToken.access_token; }
                 else { return null; }
             }
         }
 
+        /// <summary>
+        /// Determines whether the curren token is active
+        /// </summary>
         public bool Active
         {
-            get
-            {
-                return token != null;
-            }
+            get { return _AccessToken != null && ExpiresOn > DateTime.Now; }
             set
             {
                 //Only do anything if the value is changing
                 if (value != Active)
                 {
-                    if (value == true)
-                    {
-                        RequestToken();
-                    }
-                    else
-                    {
-                        token = null;
-                    }
+                    if (value == true) { RequestToken(); }
+                    else { _AccessToken = null; }
                 }
             }
         }
 
+        /// <summary>
+        /// When the current token expires
+        /// </summary>
         public DateTime ExpiresOn { get; protected set; }
 
+        /// <summary>
+        /// Create a new AzureToken
+        /// </summary>
+        /// <param Name="clientId">The ID of the program accessing the web service</param>
+        /// <param Name="clientSecret">The secret of the program accessing the web service</param>
+        /// <param Name="scope">The scope of what the token is for</param>
         public AzureToken(string clientId, string clientSecret, string scope)
         {
             ClientID = clientId;
@@ -74,9 +115,13 @@ namespace zoom.WebServiceHelpers
             Scope = scope;
         }
 
+        /// <summary>
+        /// Request a new token from the azure data market
+        /// </summary>
+        /// <returns>Whether it succesfully aquired a token</returns>
         public bool RequestToken()
         {
-            //If there is already a token, return true
+            //If there is already a _AccessToken, return true
             if (Active == true) { return true; }
 
 
@@ -84,13 +129,13 @@ namespace zoom.WebServiceHelpers
             //If the RequestToken successfully executes and returns, return true, otherwise return false
             try
             {
-                token = HttpPost(DataMarketURI, request);
-                ExpiresOn = DateTime.Now.AddMinutes(Int32.Parse(token.expires_in));
+                _AccessToken = HttpPost(_DataMarketURI, request);
+                ExpiresOn = DateTime.Now.AddMinutes(Int32.Parse(_AccessToken.expires_in));
                 return true;
             }
             catch
             {
-                token = null;
+                _AccessToken = null;
                 return false;
             }
 

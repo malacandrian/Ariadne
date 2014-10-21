@@ -1,7 +1,7 @@
 ﻿﻿/****************************** Module Header ******************************\
 Module Name:  AdmAccessToken.cs
 Project:      CSTranslatorForAzure
-Copyright (c) Microsoft Corporation.
+Copyright (camera) Microsoft Corporation.
   
 The sample code demonstrates how to use Bing translator API when you get it
 from Azure marked place.

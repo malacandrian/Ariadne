@@ -12,112 +12,120 @@ using UMD.HCIL.Piccolo.Util;
 
 namespace zoom.Interfaces
 {
+    /// <summary>
+    /// AbstractInterface handles the common logic for the text-entry interfaces 
+    /// </summary>
     public abstract class AbstractInterface : PNode
     {
+        /// <summary>
+        /// The box that the user sees when they activate the interface
+        /// </summary>
         public PPath Background { get; protected set; }
+
+        /// <summary>
+        /// The text box the user's input is placed into
+        /// </summary>
         public PText Entry { get; protected set; }
+
+        /// <summary>
+        /// The icon that differentiates one interface from another
+        /// </summary>
         public PImage Icon { get; protected set; }
 
-        public static readonly int MinWidth = 320;
-        public static readonly int TextHeight = 60;
-        public static readonly int IconSize = TextHeight;
-        public static readonly int Padding = 20;
+        /// <summary>
+        /// The smallest Width the text entry section of the interface can take
+        /// </summary>
+        public virtual int MinWidth { get { return 320; } }
 
-        protected TextEntryHandler Handler;
+        /// <summary>
+        /// The Height of the text entry section of the interface
+        /// </summary>
+        public virtual int TextHeight { get { return 60; } }
 
-        public AbstractInterface(PImage icon)
+        /// <summary>
+        /// The size of the icon
+        /// </summary>
+        public virtual RectangleF IconBounds
         {
-            Background = PPath.CreateRectangle(0, 0, MinWidth + IconSize + (Padding * 2), 100);
-            Entry = new PText();
-            Entry.ConstrainHeightToTextHeight = false;
-            //Entry.ConstrainWidthToTextWidth = false;
-            Entry.Bounds = new RectangleF(Padding, Padding, 0, TextHeight);
-            Entry.Font = new Font("Century Gothic", 32);
-            AddChild(Background);
-            AddChild(Entry);
+            get
+            {
+                GraphicsUnit pixel = GraphicsUnit.Pixel;
+                return Icon.Image.GetBounds(ref pixel);
+            }
+        }
 
+        /// <summary>
+        /// The padding between any two items in the interface
+        /// </summary>
+        public virtual int Padding { get { return 20; } }
+
+        /// <summary>
+        /// Handles text entry into the interface
+        /// </summary>
+        protected InterfaceTextEntryHandler Handler;
+
+        /// <summary>
+        /// Create a new interface with a specific icon
+        /// </summary>
+        /// <param Name="icon"></param>
+        protected AbstractInterface(PImage icon)
+        {
+            //Create the icon
             Icon = icon;
-            Icon.Bounds = new RectangleF(MinWidth + Padding, Padding, IconSize, IconSize);
+            Icon.Bounds = new RectangleF(MinWidth + Padding, Padding, IconBounds.Width, IconBounds.Height);
             AddChild(Icon);
 
-            Handler = new TextEntryHandler(this);
+            //Create the background
+            Background = PPath.CreateRectangle(0, 0, MinWidth + IconBounds.Width + (Padding * 2), 100);
+            AddChild(Background);
+
+            //Create the text entry field
+            Entry = new PText();
+            Entry.ConstrainHeightToTextHeight = false;
+            Entry.Bounds = new RectangleF(Padding, Padding, 0, TextHeight);
+            Entry.Font = new Font("Century Gothic", 32);
+            AddChild(Entry);
+
+            //Create the text entry handler
+            Handler = new InterfaceTextEntryHandler(this);
             Entry.AddInputEventListener(Handler);
         }
 
-        public abstract void Release(object sender, PInputEventArgs e);
+        /// <summary>
+        /// Fired when the user releases the key, performing the action of the interface
+        /// </summary>
+        /// <param Name="sender"></param>
+        /// <param Name="e"></param>
+        public abstract void Execute(object sender, PInputEventArgs e);
+
+        /// <summary>
+        /// Fired when the user first depresses the key
+        /// </summary>
+        /// <param Name="sender"></param>
+        /// <param Name="e"></param>
         public abstract void Activate(object sender, PInputEventArgs e);
+
+        /// <summary>
+        /// Fired every time the user depresses the key
+        /// </summary>
+        /// <param Name="sender"></param>
+        /// <param Name="e"></param>
         public abstract void RegisterActivateButtonPress(object sender, PInputEventArgs e);
+
+        /// <summary>
+        /// Based on the event args, should the interface be inititated / executed?
+        /// </summary>
+        /// <remarks>This is only for showing or executing the interface. Text entry is handled seperately</remarks>
+        /// <param Name="e">The event to respond to</param>
+        /// <returns>Whether the interface should respond to the event</returns>
         public abstract bool Accepts(PInputEventArgs e);
 
-        protected static bool MatchKeys(Keys expected, Keys actual)
-        {
-            return (expected & actual) == expected && (expected ^ actual) == 0;
-        }
+        /// <summary>
+        /// Determine whether two Keys values are exactly equal
+        /// </summary>
+        /// <param Name="expected">The expected value</param>
+        /// <param Name="actual">The actual value</param>
+        /// <returns>Whether the expected value exactly matches the actual value</returns>
+        protected static bool MatchKeys(Keys expected, Keys actual) { return (expected & actual) == expected && (expected ^ actual) == 0; }
     }
-
-    public class TextEntryHandler : PBasicInputEventHandler
-    {
-        public delegate void WidthUpdateHandler();
-        public WidthUpdateHandler UpdateWidth;
-
-        public AbstractInterface Owner { get; protected set; }
-
-        public TextEntryHandler(AbstractInterface o)
-        {
-            Owner = o;
-            UpdateWidth += OnUpdateWidth;
-        }
-
-        public override bool DoesAcceptEvent(PInputEventArgs e)
-        {
-            return e.IsKeyEvent && base.DoesAcceptEvent(e);
-        }
-
-        public override void OnKeyDown(object sender, PInputEventArgs e)
-        {
-            base.OnKeyDown(sender, e);
-            char c = (char)e.KeyCode;
-
-            //Keydown seems to assume they're all caps
-            //All lower case looks better than all caps
-            //So we'll force them to lower case
-            if (c >= 'A' && c <= 'Z')
-            {
-                c = (char)(c + 32);
-            }
-
-            //If it's a letter or a number, add it to the text
-            if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
-            {
-                Owner.Entry.Text += c;
-            }
-            else
-            {
-                //Deal with control characters
-                switch (c)
-                {
-                    case (char)Keys.Back: //Backspace
-                        Owner.Entry.Text = Owner.Entry.Text.Substring(0, Owner.Entry.Text.Length - 1);
-                        break;
-
-                    case ' ': //Space
-                        Owner.Entry.Text += ' ';
-                        break;
-                }
-            }
-
-            UpdateWidth();
-        }
-
-        protected void OnUpdateWidth()
-        {
-            float basicWidth = AbstractInterface.MinWidth;
-            if (Owner.Entry.Width > AbstractInterface.MinWidth) { basicWidth = Owner.Entry.Width; }
-
-            Owner.Background.Width = basicWidth + (AbstractInterface.Padding * 2) + AbstractInterface.IconSize;
-            Owner.Icon.X = basicWidth + AbstractInterface.Padding;
-        }
-    }
-
-
 }
